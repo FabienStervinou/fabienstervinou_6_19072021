@@ -19,6 +19,10 @@ ol, ul, li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 blockquote, q {
   quotes: none;
 }
@@ -38,10 +42,13 @@ table {
   border-spacing: 0;
 }
 
+html {
+  font-family: "DM Sans", sans-serif;
+}
+
 header {
   display: flex;
   flex-wrap: wrap;
-  background-color: antiquewhite;
   width: 100%;
 }
 header .logo {
@@ -49,15 +56,37 @@ header .logo {
   align-items: center;
   width: calc(50% - 20px);
   margin-left: 20px;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
 }
 header .logo img {
   height: 30px;
 }
 header .tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   order: 3;
   width: 100%;
+  margin: 0 20px;
+}
+header .tags_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  border: 0.5px solid #C4C4C4;
+  padding: 1px 5px;
+  border-radius: 20px;
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+header .tags_item a {
+  font-size: 12px;
+  color: #901C1C;
+}
+header .tags_item a::before {
+  content: "#";
 }
 header .sitePath {
   display: flex;
@@ -65,7 +94,7 @@ header .sitePath {
   align-items: center;
   width: calc(50% - 20px);
   margin-right: 20px;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
   color: #901C1C;
   font-size: 14px;
