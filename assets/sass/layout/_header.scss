@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: antiquewhite;
+  width: 100%;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    width: calc(50% - 20px);
+    margin-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    img {
+      height: 30px;
+    }
+  }
+  .tags {
+    order: 3;
+    width: 100%;
+    &_item {}
+  }
+  .sitePath {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: calc(50% - 20px);
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: $color-primary;
+    font-size: 14px;
+  }
+}
