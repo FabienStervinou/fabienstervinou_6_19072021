@@ -8,42 +8,96 @@
   <title>FishEye</title>
 </head>
 <body>
-  <header>
-    <h1 class="logo">
+  <header class="header-nav">
+    <div class="logo">
       <img src="assets/img/logo.png" alt="Logo de FishEye">
-    </h1>
-    <ul class="tags">
-      <li class="tags_item">
-        <a href="#">Portrait</a> 
-      </li>
-      <li class="tags_item">
-        <a href="#">Art</a> 
-      </li>
-      <li class="tags_item">
-        <a href="#">Fashion</a> 
-      </li>
-      <li class="tags_item">
-        <a href="#">Architecture</a> 
-      </li>
-      <li class="tags_item">
-        <a href="#">Travel</a> 
-      </li>
-      <li class="tags_item">
-        <a href="#">Sport</a> 
-      </li>
-      <li class="tags_item">
-        <a href="#">Animals</a> 
-      </li>
-      <li class="tags_item">
-        <a href="#">Events</a> 
-      </li>
-    </ul>
-    <h2 class="sitePath">
+    </div>
+    <nav class="nav" aria-label="photographer categories" >
+      <ol class="tags">
+        <li class="tags_item">
+          <a href="#">Portrait</a> 
+        </li>
+        <li class="tags_item">
+          <a href="#">Art</a> 
+        </li>
+        <li class="tags_item">
+          <a href="#">Fashion</a> 
+        </li>
+        <li class="tags_item">
+          <a href="#">Architecture</a> 
+        </li>
+        <li class="tags_item">
+          <a href="#">Travel</a> 
+        </li>
+        <li class="tags_item">
+          <a href="#">Sport</a> 
+        </li>
+        <li class="tags_item">
+          <a href="#">Animals</a> 
+        </li>
+        <li class="tags_item">
+          <a href="#">Events</a> 
+        </li>
+      </ol>
+    </n>
+
+  </header>
+  <main class="photographers">
+    <h1 class="sitePath">
       <!-- TODO: Make it dynamic with JS -->
       <p>Nos Photographes</p>
-    </h2>
-  </header>
-  <main></main>
+    </h1>
+    <section class="cards">
+      <article class="card-item">
+        <header class="card-header">
+          <a class="card-header_link" href="#">
+            <img src="./assets/img/Mimi/Portrait_Nora.jpg" alt="#" class="card-header_img"/>
+            <h2 class="card-header_title">Mimi Keel</h2>
+          </a>
+        </header>
+        <p class="card-location">London, UK</p>
+        <p class="card-description">Voir le beau dans le quotidien</p>
+        <p class="card-price">400</p>
+        <footer class="card-footer">
+          <ol class="tags">
+            <li class="tags_item">
+              <a href="#">portrait</a> 
+            </li>
+            <li class="tags_item">
+              <a href="#">events</a> 
+            </li>
+            <li class="tags_item">
+              <a href="#">travel</a> 
+            </li>
+            <li class="tags_item">
+              <a href="#">animals</a> 
+            </li>
+          </ol>
+        </footer>
+      </article>
+      <article class="card-item">
+        <header class="card-header">
+          <a class="card-header_link" href="#">
+            <img src="./assets/img/Ellie Rose/Architecture_Connected_Curves.jpg" alt="#" class="card-header_img"/>
+            <h2 class="card-header_title">Ellie-Rose Wilkens</h2>
+          </a>
+          </header>
+        <p class="card-location">Paris; France</p>
+        <p class="card-description">Travaille sur des compositions complexes</p>
+        <p class="card-price">250</p>
+        <footer class="card-footer">
+          <ol class="tags">
+            <li class="tags_item">
+              <a href="#">sports</a> 
+            </li>
+            <li class="tags_item">
+              <a href="#">architecture</a> 
+            </li>
+          </ol>
+        </footer>
+      </article>
+    </section>
+  </main>
   <footer></footer>
   <script type="module" src="./index.js"></script>
   <script type="module" src="/js/factory.js"></script>
