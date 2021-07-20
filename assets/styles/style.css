@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -45,13 +46,109 @@ table {
 html {
   font-family: "DM Sans", sans-serif;
 }
+html body {
+  position: relative;
+}
 
-header {
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  place-content: center space-around;
+}
+.cards .card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 0 24%;
+  margin: 0 50px;
+}
+.cards .card-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cards .card-header_link {
+  width: fit-content;
+  text-align: center;
+}
+.cards .card-header_img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+.cards .card-header_title {
+  color: #D3573C;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.cards .card-location {
+  font-size: 13px;
+  color: #901C1C;
+  margin-bottom: 5px;
+}
+.cards .card-description {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+.cards .card-price {
+  font-size: 9px;
+  color: #757575;
+  margin-bottom: 5px;
+}
+.cards .card-price::after {
+  content: "€/jour";
+}
+.cards .tags {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.tags_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  border: 0.5px solid #C4C4C4;
+  padding: 0px 5px;
+  border-radius: 20px;
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+.tags_item a {
+  font-size: 12px;
+  color: #901C1C;
+}
+.tags_item a::before {
+  content: "#";
+}
+
+@media screen and (min-width: 992px) {
+  .tags {
+    margin-bottom: 0;
+  }
+}
+.header-nav {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
-header .logo {
+.header-nav .logo {
   display: flex;
   align-items: center;
   width: calc(50% - 20px);
@@ -59,45 +156,63 @@ header .logo {
   padding-top: 40px;
   padding-bottom: 20px;
 }
-header .logo img {
+.header-nav .logo img {
   height: 30px;
 }
-header .tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  order: 3;
+
+@media screen and (min-width: 992px) {
+  .header-nav .logo {
+    width: fit-content;
+    padding: 30px 0;
+  }
+  .header-nav .logo img {
+    height: 50px;
+  }
+}
+nav {
   width: 100%;
   margin: 0 20px;
 }
-header .tags_item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  border: 0.5px solid #C4C4C4;
-  padding: 1px 5px;
-  border-radius: 20px;
-  margin-bottom: 3px;
-  margin-right: 3px;
+
+@media screen and (min-width: 992px) {
+  nav {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    width: calc(100% - 540px);
+    margin: 0;
+  }
 }
-header .tags_item a {
-  font-size: 12px;
-  color: #901C1C;
+main.photographers {
+  max-width: 1400px;
+  margin: 0 auto;
 }
-header .tags_item a::before {
-  content: "#";
-}
-header .sitePath {
+main.photographers .sitePath {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
   width: calc(50% - 20px);
-  margin-right: 20px;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  max-width: 1200px;
+  padding: 40px 0;
+  margin: 0 20px;
   color: #901C1C;
   font-size: 14px;
+}
+
+@media screen and (min-width: 992px) {
+  main.photographers .sitePath {
+    font-size: 28px;
+    width: 300px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  main.photographers .sitePath {
+    font-size: 36px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
