@@ -17,11 +17,12 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $bp-tablet-lg) {
   .header-nav {
     .logo {
       width: fit-content;
       padding: 30px 0;
+      margin-left: 5vw;
 
       img {
         height: 50px;

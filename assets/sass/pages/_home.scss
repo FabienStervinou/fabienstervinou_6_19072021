@@ -19,16 +19,17 @@ main.photographers {
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $bp-tablet-lg) {
   main.photographers {
     .sitePath {
       font-size: 28px;
       width: 300px;
+      margin-right: 5vw;
     }
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $bp-desktop-lg) {
   main.photographers {
     .sitePath {
       font-size: 36px;

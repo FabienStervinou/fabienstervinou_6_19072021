@@ -58,7 +58,6 @@ html body {
 }
 .cards .card-item {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   flex: 1 0 24%;
@@ -130,6 +129,12 @@ html body {
   margin-bottom: 3px;
   margin-right: 3px;
 }
+.tags_item:hover {
+  background-color: #901C1C;
+}
+.tags_item:hover a {
+  color: #FAFAFA;
+}
 .tags_item a {
   font-size: 12px;
   color: #901C1C;
@@ -164,6 +169,7 @@ html body {
   .header-nav .logo {
     width: fit-content;
     padding: 30px 0;
+    margin-left: 5vw;
   }
   .header-nav .logo img {
     height: 50px;
@@ -207,6 +213,7 @@ main.photographers .sitePath {
   main.photographers .sitePath {
     font-size: 28px;
     width: 300px;
+    margin-right: 5vw;
   }
 }
 @media screen and (min-width: 1200px) {
