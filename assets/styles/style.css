@@ -223,10 +223,10 @@ main.photographers .sitePath {
 }
 .card__photographer {
   display: flex;
-  position: relative;
   width: calc(100% - (20px * 2));
   margin-bottom: 50px;
-  margin: 0 20px;
+  margin: 0 auto;
+  max-width: 850px;
 }
 .card__photographer-content {
   flex-grow: 1;
@@ -255,6 +255,22 @@ main.photographers .sitePath {
   height: 100px;
   width: 100px;
   border-radius: 50%;
+}
+.card__photographer .contactLink {
+  position: fixed;
+  bottom: 30px;
+  background-color: #901C1C;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: min-content;
+  white-space: nowrap;
+}
+.card__photographer .contactLink a {
+  color: #FAFAFA;
+  font-size: 14px;
 }
 .card-footer .tags {
   justify-content: flex-start;
@@ -289,9 +305,25 @@ main.photographers .sitePath {
     color: #757575;
     padding-bottom: 20px;
   }
+  .card__photographer-link {
+    position: relative;
+  }
   .card__photographer-linkImg {
     height: 200px;
     width: 200px;
+  }
+  .card__photographer .contactLink {
+    position: relative;
+    height: fit-content;
+    top: 0;
+    background-color: #901C1C;
+    border-radius: 5px;
+    padding: 25px 15px;
+    margin-right: 50px;
+  }
+  .card__photographer .contactLink a {
+    color: #FAFAFA;
+    font-size: 20px;
   }
   .card-footer .tags_item {
     padding: 2px 7px;
@@ -312,7 +344,7 @@ main.photographers .sitePath {
   align-items: center;
   flex-direction: column;
   flex: 1 0 24%;
-  margin: 0 50px 10px;
+  margin: 0 20px 10px;
 }
 .pictureItem-img img {
   width: 335px;

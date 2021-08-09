@@ -1,10 +1,10 @@
 .card {
   &__photographer {
     display: flex;
-    position: relative;
     width: calc(100% - (20px * 2));
     margin-bottom: 50px;
-    margin: 0 20px;
+    margin: 0 auto;
+    max-width: 850px;
 
     &-content {
       flex-grow: 1;
@@ -37,6 +37,24 @@
         height: 100px;
         width: 100px;
         border-radius: 50%;
+      }
+    }
+
+    .contactLink {
+      position: fixed;
+      bottom: 30px;
+      background-color: $color-primary;
+      border-radius: 5px;
+      padding: 5px 20px;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      width: min-content;
+      white-space: nowrap;
+
+      a {
+        color: $color-white;
+        font-size: 14px;
       }
     }
   }
@@ -83,9 +101,27 @@
       }
 
       &-link {
+        position: relative;
+
         &Img {
           height: 200px;
           width: 200px;
+        }
+      }
+
+      .contactLink {
+        position: relative;
+        height: fit-content;
+        top: 0;
+        background-color: $color-primary;
+        border-radius: 5px;
+        padding: 25px 15px;
+        margin-right: 50px;
+
+
+        a {
+          color: $color-white;
+          font-size: 20px;
         }
       }
     }
@@ -118,7 +154,7 @@
     align-items: center;
     flex-direction: column;
     flex: 1 0 24%;
-    margin: 0 50px 10px;
+    margin: 0 20px 10px;
     
     &-img {
       img {
