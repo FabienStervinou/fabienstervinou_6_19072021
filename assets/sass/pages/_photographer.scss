@@ -75,6 +75,7 @@
       padding: 60px 50px;
       width: calc(100% - (5vw * 2) - 100px);
       border-radius: 5px;
+      max-width: none;
 
       &-content {
         display: flex;
