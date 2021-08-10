@@ -306,6 +306,10 @@
   }
 }
 
+.photographerInfo {
+  display: none;
+}
+
 @media only screen and (min-width: $bp-tablet-lg) {
   .photographerInfo {
     position: fixed;

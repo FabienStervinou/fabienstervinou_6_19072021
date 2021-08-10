@@ -460,6 +460,10 @@ main.photographers .sitePath {
     margin: 0 5vw 20px;
   }
 }
+.photographerInfo {
+  display: none;
+}
+
 @media only screen and (min-width: 992px) {
   .photographerInfo {
     position: fixed;
