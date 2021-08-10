@@ -460,5 +460,24 @@ main.photographers .sitePath {
     margin: 0 5vw 20px;
   }
 }
+@media only screen and (min-width: 992px) {
+  .photographerInfo {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    right: 70px;
+    font-size: 24px;
+    border-radius: 5px 5px 0 0;
+    background-color: #D3573C;
+    padding: 20px 30px 10px;
+  }
+  .photographerInfo-likes {
+    padding-right: 60px;
+  }
+  .photographerInfo-prices::after {
+    position: relative;
+    content: "€ / jour";
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
