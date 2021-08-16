@@ -45,14 +45,15 @@
       bottom: 30px;
       background-color: $color-primary;
       border-radius: 5px;
-      padding: 5px 20px;
       margin: 0 auto;
       left: 0;
       right: 0;
       width: min-content;
       white-space: nowrap;
+      padding: 5px 0;
 
       a {
+        padding: 0 20px;
         color: $color-white;
         font-size: 14px;
       }
@@ -318,7 +319,7 @@
     right: 70px;
     font-size: 24px;
     border-radius: 5px 5px 0 0;
-    background-color: $color-secondary;
+    background-color: $bg-primary;
     padding: 20px 30px 10px;
 
     &-likes {

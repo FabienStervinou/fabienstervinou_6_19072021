@@ -261,14 +261,15 @@ main.photographers .sitePath {
   bottom: 30px;
   background-color: #901C1C;
   border-radius: 5px;
-  padding: 5px 20px;
   margin: 0 auto;
   left: 0;
   right: 0;
   width: min-content;
   white-space: nowrap;
+  padding: 5px 0;
 }
 .card__photographer .contactLink a {
+  padding: 0 20px;
   color: #FAFAFA;
   font-size: 14px;
 }
@@ -472,7 +473,7 @@ main.photographers .sitePath {
     right: 70px;
     font-size: 24px;
     border-radius: 5px 5px 0 0;
-    background-color: #D3573C;
+    background-color: #DB8876;
     padding: 20px 30px 10px;
   }
   .photographerInfo-likes {
