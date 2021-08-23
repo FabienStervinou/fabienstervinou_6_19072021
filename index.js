@@ -1,17 +1,29 @@
-import Factory from './js/factory';
+import './assets/sass/main.scss';
+import Router from './js/Router.js';
+// import Photographer from './js/Photographer.js';
 
-const getData = async function () {
-  let response = await fetch('./data.json');
-  if (response.ok) {
-    let data = await response.json();
-    for (let i = 0; i < data.length; i++) {
-      const element = data[i];
-      console.log(new Factory(element));
-    }    
-    console.log('Data : ', data);
-  } else {
-    console.error(`Error : ${response.status}`);
-  }
-};
+let init = async () => {
+  await fetch('./data.json', { mode: 'no-cors' })
+  .then((res) => res.json())
+  .then((res) => console.log(res))
+  .catch((err) => console.log("Error when fetching data", err))
+}
 
-getData();
+init()
+
+// Route logic
+const router = new Router()
+
+router.get('/', function(req) {
+  console.log('Your on path : ', req.path)
+  // run methods create photographer cards 
+})
+
+router.get('/photographer', function(req) {
+  console.log('Your on path : ', req.path)
+})
+
+router.init()
+
+// INSERT one time all photographer on home page
+// INSERT one time all photo on photographer page
