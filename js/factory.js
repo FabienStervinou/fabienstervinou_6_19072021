@@ -1,6 +1,6 @@
-import Video from './Video';
-import Photo from './Photo';
-import ErrorMesssage from './ErrorMesssage';
+import Video from './Video.js';
+import Photo from './Photo.js';
+import ErrorMesssage from './ErrorMesssage.js';
 
 export default class Factory {
   constructor(data) {
