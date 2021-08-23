@@ -1,0 +1,48 @@
+.btn {
+  background-color: $color-primary;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: min-content;
+  white-space: nowrap;
+  padding: 5px 0;
+
+  &.link {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    right: 0;;
+  }
+
+  &.submit {
+    padding: 5px 20px;
+    color: $color-white;
+    font-size: 14px;
+    border: none;
+    margin: 0 auto;
+  }
+
+  a {
+    padding: 0 20px;
+    color: $color-white;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: $bp-tablet-lg) {
+  .btn {
+    &.link {
+      position: relative;
+      height: fit-content;
+      top: 0;
+      background-color: $color-primary;
+      border-radius: 5px;
+      padding: 25px 15px;
+      margin-right: 50px;
+
+      a {
+        color: $color-white;
+        font-size: 20px;
+      }
+    }
+  }
+}

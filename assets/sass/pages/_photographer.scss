@@ -39,25 +39,6 @@
         border-radius: 50%;
       }
     }
-
-    .contactLink {
-      position: fixed;
-      bottom: 30px;
-      background-color: $color-primary;
-      border-radius: 5px;
-      margin: 0 auto;
-      left: 0;
-      right: 0;
-      width: min-content;
-      white-space: nowrap;
-      padding: 5px 0;
-
-      a {
-        padding: 0 20px;
-        color: $color-white;
-        font-size: 14px;
-      }
-    }
   }
 
   &-footer {
@@ -330,6 +311,116 @@
       &::after {
         position: relative;
         content: "€ / jour";
+      }
+    }
+  }
+}
+
+.modalContact {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 0;
+  border: none;
+  display: none;
+
+  &-form {
+    position: relative;
+    background-color: $bg-primary;
+    height: calc(100% - 40px);
+    padding: 20px;
+
+    h1 {
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
+
+    .close {
+      position: absolute;
+      background: none;
+      border: none;
+      top: 20px;
+      right: 20px;
+
+      i {
+        font-size: 32px;
+
+        &::before {
+          color: white;
+        }
+      }
+    }
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+    &[data-error]::after {
+      content: attr(data-error);
+      opacity: 0;
+      font-size: 12px;
+      transition: opacity .3s ease-in-out;
+      color: $black;
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+
+    &[data-error-visible="true"]::after {
+      opacity: 1;
+    }
+  }
+
+  &-label {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 5px;
+  }
+
+  &-input {
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+
+    &#message {
+      height: 20vh;
+    }
+  }
+}
+
+@media only screen and (min-width: $bp-tablet-lg) {
+  .modalContact {
+    &-form {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);;
+      max-height: 900px;
+      max-width: 600px;
+      box-shadow: $shadow;
+    }
+
+    // &-item {
+    //   &[data-error]::after {
+    //     content: attr(data-error);
+    //     text-align: left;
+    //   }
+
+    //   &[data-error-visible="true"]::after {
+    //     font-size: 12px;
+    //     color: $black;
+    //     margin-top: 3px;
+    //     margin-bottom: 3px;
+    //   }
+    // }
+
+    &-input {
+      &#message {
+        height: 30vh;
       }
     }
   }
