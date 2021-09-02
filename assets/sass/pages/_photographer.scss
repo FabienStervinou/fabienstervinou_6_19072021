@@ -101,7 +101,6 @@
         padding: 25px 15px;
         margin-right: 50px;
 
-
         a {
           color: $color-white;
           font-size: 20px;
@@ -272,7 +271,7 @@
         &:nth-child(2) {
           display: block;
         }
-  
+
         &:nth-child(3) {
           display: block;
         }
@@ -403,20 +402,6 @@
       max-width: 600px;
       box-shadow: $shadow;
     }
-
-    // &-item {
-    //   &[data-error]::after {
-    //     content: attr(data-error);
-    //     text-align: left;
-    //   }
-
-    //   &[data-error-visible="true"]::after {
-    //     font-size: 12px;
-    //     color: $black;
-    //     margin-top: 3px;
-    //     margin-bottom: 3px;
-    //   }
-    // }
 
     &-input {
       &#message {

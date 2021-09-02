@@ -17,6 +17,10 @@ main.photographers {
     color: $color-primary;
     font-size: 14px;
   }
+
+  .tags {
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: $bp-tablet-lg) {
