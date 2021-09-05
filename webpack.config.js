@@ -4,10 +4,13 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const dev = process.env.NODE_ENV === 'dev';
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    main: ['./index.js'],
+    photographer : ['./pages/index.js']
+  },
   output: {
     path: path.resolve('./dist'),
-    filename: 'main.js'
+    filename: '[name].js'
   },
   watch: true,
   plugins: [new MiniCssExtractPlugin()],
