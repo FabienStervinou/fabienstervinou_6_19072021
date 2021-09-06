@@ -35,15 +35,23 @@ export default class Router {
     this.routes.push(route);
   }
 
-
   init() {
     this.routes.some( route => {
 
       let regEx = new RegExp(`^${route.uri}$`);
       let path = window.location.pathname;
+      let QueryString = window.location.search;
+      let urlParams = new URLSearchParams(QueryString); 
+
+      if (path.match(regEx) && urlParams.has('q')) {
+        let id = urlParams.get('q')
+        let req = { path }
+        console.log(id);
+        return route.callback.call(this, req);
+      }
 
       if (path.match(regEx)) {
-        let req = { path } // i'll also explain this code below
+        let req = { path }
         return route.callback.call(this, req);
       }
     })
