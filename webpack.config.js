@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const dev = process.env.NODE_ENV === 'dev';
 
 module.exports = {
@@ -13,7 +14,17 @@ module.exports = {
     filename: '[name].js'
   },
   watch: true,
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(), 
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'photographer.html',
+      template: './pages/photographer.html'
+    })
+  ],
   module: {
     rules: [
       {
