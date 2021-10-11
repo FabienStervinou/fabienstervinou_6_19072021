@@ -1,3 +1,5 @@
+import Photos from '../class/Photos.js'
+
 export default class Photographer {
   constructor(data) {
     this.id = data.id;
@@ -24,17 +26,52 @@ export default class Photographer {
     return this.tags
   }
 
+  getTagsHTML() {
+    return this.tags.map(tag => `
+      <li class="tags_item" data-active="false">
+        <a id="tag_${tag}">${tag}</a> 
+      </li>
+    `).join('');
+  }
+
+  getPhotosHTML() {
+    const photos = new Photos()
+    var photographerPhotos = photos.getPhotoByPhotographerId(this.id)
+    console.log('photographerPhotos : ', photographerPhotos);
+
+    return photographerPhotos.map(photo => `
+      <article class="pictureItem">
+        <div class="pictureItem-img">
+          <img src="../assets/img/${this.name.split(' ')[0]}/${photo.image}" alt="" />
+        </div>
+        <div class="pictureItem-content">
+          <div class="pictureItem-contentText">
+            <p>${photo.title}</p>
+          </div>
+          <div class="pictureItem-contentSocial">
+            <span>${photo.likes}</span>
+            <div class="likes">
+              <i class="far fa-heart" aria-hidden="true"></i>
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </article>
+    `).join('');
+  }
+
   updateTitleHTML () {
     document.title += ` | ${this.name}`
   }
 
   generateCardDOM() {
-    let cardWrapper = document.querySelector('.cards')
+    let cardWrapper = document.querySelector('.cards');
+
 
     const cardDOM = `
-      <article class="card-item">
+    <article class="card-item">
         <header class="card-header">
-          <a class="card-header_link" href="./pages/photographer/${this.id}">
+          <a class="card-header_link" href="?page=photographer&id=${this.id}">
             <img src="${this.getPicturePath()}" alt="#" class="card-header_img"/>
             <h2 class="card-header_title">${this.name}</h2>
           </a>
@@ -44,23 +81,24 @@ export default class Photographer {
       <p class="card-price">${this.price}</p>
       <footer class="card-footer">
         <ol class="tags">
-          ${this.tags.map(tag => `
-            <li class="tags_item">
-              <a href="#">${tag}</a> 
-            </li>
-          `).join('')}
+          ${this.getTagsHTML()}
         </ol>
       </footer>
-    </article>
-    `
+    </article>`;
 
-    cardWrapper.innerHTML += cardDOM
+    cardWrapper.innerHTML += cardDOM;
   }
 
   generatePhotographerDOM() {
-    let photographerWrapper = document.querySelector('#photographer')
+    let photographerWrapper = document.querySelector('#app');
 
     const photographerDOM = `
+    <header class="header-nav">
+      <a class="logo" href="/">
+        <img src="../assets/img/logo.png" alt="Fisheye Home page">
+      </a>
+    </header>
+    <main id="photographer">
       <section class="card__photographer">
         <div class="card__photographer-content">
           <h1 class="card__photographer-name">${this.name}</h1>
@@ -68,11 +106,7 @@ export default class Photographer {
           <p class="card__photographer-description">${this.tagline}</p>
           <div class="card-footer">
             <ol class="tags">
-              ${this.tags.map(tag => `
-              <li class="tags_item">
-                <a href="#">${tag}</a> 
-              </li>
-            `).join('')}
+              ${this.getTagsHTML()}
             </ol>
           </div>
         </div>
@@ -92,77 +126,9 @@ export default class Photographer {
         </div>
       </section>
       <section class="pictureList">
-        <article class="pictureItem">
-          <div class="pictureItem-img">
-            <img src="../assets/img/Mimi/Animals_Rainbow.jpg" alt="" />
-          </div>
-          <div class="pictureItem-content">
-            <div class="pictureItem-contentText">
-              <p>Arc-en-ciel</p>
-            </div>
-            <div class="pictureItem-contentSocial">
-              <span>12</span>
-              <div class="likes">
-                <i class="far fa-heart" aria-hidden="true"></i>
-                <i class="fas fa-heart" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </article>
 
-        <article class="pictureItem">
-          <div class="pictureItem-img">
-            <img src="../assets/img/Mimi/Animals_Rainbow.jpg" alt="" />
-          </div>
-          <div class="pictureItem-content">
-            <div class="pictureItem-contentText">
-              <p>Arc-en-ciel</p>
-            </div>
-            <div class="pictureItem-contentSocial">
-              <span>12</span>
-              <div class="likes">
-                <i class="far fa-heart" aria-hidden="true"></i>
-                <i class="fas fa-heart" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </article>
+      ${this.getPhotosHTML()}
 
-        <article class="pictureItem">
-          <div class="pictureItem-img">
-            <img src="../assets/img/Mimi/Animals_Rainbow.jpg" alt="" />
-          </div>
-          <div class="pictureItem-content">
-            <div class="pictureItem-contentText">
-              <p>Arc-en-ciel</p>
-            </div>
-            <div class="pictureItem-contentSocial">
-              <span>12</span>
-              <div class="likes">
-                <i class="far fa-heart" aria-hidden="true"></i>
-                <i class="fas fa-heart" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="pictureItem">
-          <div class="pictureItem-img">
-            <img src="../assets/img/Mimi/Animals_Rainbow.jpg" alt="" />
-          </div>
-          <div class="pictureItem-content">
-            <div class="pictureItem-contentText">
-              <p>Arc-en-ciel</p>
-            </div>
-            <div class="pictureItem-contentSocial">
-              <span>12</span>
-              <div class="likes">
-                <i class="far fa-heart" aria-hidden="true"></i>
-                <i class="fas fa-heart" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </article>
       </section>
       <aside class="photographerInfo">
         <div class="photographerInfo-likes">
@@ -225,8 +191,9 @@ export default class Photographer {
         </form>
       </dialog>
     </main>
-    `
+    `;
 
-    photographerWrapper.innerHTML += cardDOM
+    photographerWrapper.innerHTML = photographerDOM;
+
   }
 }
