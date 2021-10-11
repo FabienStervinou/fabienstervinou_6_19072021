@@ -1,7 +1,7 @@
 export default class Router {
 
   constructor() {
-    this.routes = [];
+    this.routes = []
   }
 
   get(uri, callback) {
@@ -32,27 +32,20 @@ export default class Router {
       callback
     }
 
-    this.routes.push(route);
+    this.routes.push(route)
   }
 
   init() {
     this.routes.some( route => {
 
-      let regEx = new RegExp(`^${route.uri}$`);
-      let path = window.location.pathname;
-      let QueryString = window.location.search;
-      let urlParams = new URLSearchParams(QueryString); 
-
-      if (path.match(regEx) && urlParams.has('q')) {
-        let id = urlParams.get('q')
-        let req = { path }
-        console.log(id);
-        return route.callback.call(this, req);
-      }
+      let regEx = new RegExp(`^${route.uri}$`)
+      let path = window.location.pathname
 
       if (path.match(regEx)) {
         let req = { path }
-        return route.callback.call(this, req);
+        console.log(window.location.href);
+        console.log(document.location);
+        return route.callback.call(this, req)
       }
     })
   }
