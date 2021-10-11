@@ -11,7 +11,8 @@ module.exports = {
   },
   output: {
     path: path.resolve('./dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/'
   },
   watch: true,
   plugins: [
@@ -21,8 +22,9 @@ module.exports = {
       chunks: ['main']
     }),
     new HtmlWebpackPlugin({
+      template: './pages/photographer.html',
       filename: 'photographer.html',
-      template: './pages/photographer.html'
+      chunks: ['./pages/index.js']
     })
   ],
   module: {
