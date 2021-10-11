@@ -6,37 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="dist/main.css">
   <title>FishEye</title>
-<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
-<body>
+<script defer src="/main.js"></script><link href="/main.css" rel="stylesheet"></head>
+<body id="app">
   <header class="header-nav">
-    <a class="logo" href="/">
+    <a class="logo" href="/?page=home">
       <img src="assets/img/logo.png" alt="Fisheye Home page">
     </a>
     <nav class="nav" aria-label="photographer categories" >
-      <ol class="tags">
+      <ol id="tags" class="tags">
         <li class="tags_item">
-          <a href="#">Portrait</a> 
+          <a href="&tag=portrait">portrait</a> 
         </li>
         <li class="tags_item">
-          <a href="#">Art</a> 
+          <a href="#">art</a> 
         </li>
         <li class="tags_item">
-          <a href="#">Fashion</a> 
+          <a href="#">fashion</a> 
         </li>
         <li class="tags_item">
-          <a href="#">Architecture</a> 
+          <a href="#">architecture</a> 
         </li>
         <li class="tags_item">
-          <a href="#">Travel</a> 
+          <a href="#">travel</a> 
         </li>
         <li class="tags_item">
-          <a href="#">Sport</a> 
+          <a href="#">sport</a> 
         </li>
         <li class="tags_item">
-          <a href="#">Animals</a> 
+          <a href="#">animals</a> 
         </li>
         <li class="tags_item">
-          <a href="#">Events</a> 
+          <a href="#">events</a> 
         </li>
       </ol>
     </nav>
@@ -44,61 +44,11 @@
 
   <main class="photographers">
     <h1 class="sitePath">
-      <!-- TODO: Make it dynamic with JS -->
       <p>Nos photographes</p>
     </h1>
     <section class="cards">
-      <!-- <article class="card-item">
-        <header class="card-header">
-          <a class="card-header_link" href="./pages/photographer.html">
-            <img src="./assets/img/Mimi/Portrait_Nora.jpg" alt="#" class="card-header_img"/>
-            <h2 class="card-header_title">Mimi Keel</h2>
-          </a>
-        </header>
-        <p class="card-location">London, UK</p>
-        <p class="card-description">Voir le beau dans le quotidien</p>
-        <p class="card-price">400</p>
-        <footer class="card-footer">
-          <ol class="tags">
-            <li class="tags_item">
-              <a href="#">portrait</a> 
-            </li>
-            <li class="tags_item">
-              <a href="#">events</a> 
-            </li>
-            <li class="tags_item">
-              <a href="#">travel</a> 
-            </li>
-            <li class="tags_item">
-              <a href="#">animals</a> 
-            </li>
-          </ol>
-        </footer>
-      </article>
-      <article class="card-item">
-        <header class="card-header">
-          <a class="card-header_link" href="#">
-            <img src="./assets/img/Ellie Rose/Architecture_Connected_Curves.jpg" alt="#" class="card-header_img"/>
-            <h2 class="card-header_title">Ellie-Rose Wilkens</h2>
-          </a>
-          </header>
-        <p class="card-location">Paris; France</p>
-        <p class="card-description">Travaille sur des compositions complexes</p>
-        <p class="card-price">250</p>
-        <footer class="card-footer">
-          <ol class="tags">
-            <li class="tags_item">
-              <a href="#">sports</a> 
-            </li>
-            <li class="tags_item">
-              <a href="#">architecture</a> 
-            </li>
-          </ol>
-        </footer>
-      </article> -->
     </section>
   </main>
-  <footer></footer>
   <script type="module" src="./dist/main.js"></script>
 </body>
 </html>
