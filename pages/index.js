@@ -1,5 +1,25 @@
-// TODO: remove
-console.log('File init')
+import Photographer from '../script/class/Photographer';
+import Data from '../script/utils/Data';
+
+let initDataPhotographer = async () => {
+  await fetch('../data.json', { mode: 'no-cors' })
+  .then((res) => res.json())
+  .then((res) => {
+
+    // TEST
+    let datas = new Data(res)
+    datas.showData();
+
+    for (let i = 0; i < res.photographers.length; i++) {
+      const item = res.photographers[i]
+      let photographer = new Photographer(item)
+      photographer.generatePhotographerDOM()
+    }
+  })
+  .catch((err) => console.log("Error when fetching data", err))
+}
+
+initDataPhotographer();
 
 // DOM Elmement
 let modalContact = document.getElementById('modalContact')
@@ -7,9 +27,9 @@ let contactBtn = document.getElementById('contactBtn')
 let closeBtn = document.getElementById('close')
 let submitBtn = document.getElementById('submitBtn')
 
-contactBtn.addEventListener('click', openModalContact)
-closeBtn.addEventListener('click', closeModalContact)
-submitBtn.addEventListener('click', submitFormContact)
+// contactBtn.addEventListener('click', openModalContact)
+// closeBtn.addEventListener('click', closeModalContact)
+// submitBtn.addEventListener('click', submitFormContact)
 
 function openModalContact() {
   modalContact.style.display = 'block'
