@@ -1,4 +1,6 @@
-export default class Photo {
+import Photos from '../class/Photos'
+
+export default class Photo extends Photos {
   constructor(data) {
     this.id = data.id;
     this.title = data.title;
@@ -6,7 +8,6 @@ export default class Photo {
     this.likes = data.likes;
     this.authorId = data.photographerId;
     this.price = data.price;
-    // TODO: Verify type passed to the constructor
     this.tags = data.tags;
     this.file = data.image;
   }
