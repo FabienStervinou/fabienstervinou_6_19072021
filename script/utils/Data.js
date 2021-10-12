@@ -8,8 +8,8 @@ export default class Data {
   }
 
   getAllTags() {
-    var data = this.photographers;
-    var result = [];
+    let data = this.photographers;
+    let result = [];
 
     for (let i = 0; i < data.length; i++) {
       const photographer = data[i].tags;

@@ -36,8 +36,7 @@ export default class Photographer {
 
   getPhotosHTML() {
     const photos = new Photos()
-    var photographerPhotos = photos.getPhotoByPhotographerId(this.id)
-    console.log('photographerPhotos : ', photographerPhotos);
+    let photographerPhotos = photos.getPhotoByPhotographerId(this.id)
 
     return photographerPhotos.map(photo => `
       <article class="pictureItem">

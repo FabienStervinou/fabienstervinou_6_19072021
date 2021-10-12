@@ -16,11 +16,10 @@ let searchParams = new URLSearchParams(paramsString);
 
 console.log('url :', url.href);
 
+// home
 if ((searchParams.get('page') === 'home' && url.pathname === "/") || searchParams.get('page') == null ) { 
   try {
     let data = new Data();
-
-    console.log('data: ', data);
 
     for (let i = 0; i < data.photographers.length; i++) {
       const item = data.photographers[i];
@@ -33,7 +32,7 @@ if ((searchParams.get('page') === 'home' && url.pathname === "/") || searchPara
   }
 }
 
-// /photographer/:id
+// photographer/:id
 if (searchParams.get('page') == 'photographer' && searchParams.get('id') != null) {
   try {
     let data = new Data();
@@ -55,10 +54,8 @@ if (searchParams.get('page') == 'photographer' && searchParams.get('id') != null
   }
 }
 
-// /:tag
+// :tag
 if (searchParams.get('tag') != null ) {
-  let tags = document.getElementById("tags");
-  console.log(tags);
   let tagData = new Data();
   tagData.getAllTags()
 }
@@ -68,14 +65,18 @@ function addTagInUrlParam(e) {
   let tag = e.target
   let tagLabel = tag.id.split('_')[1];
   let urlToPush = `&tag=${tagLabel}`;
-  
-  window.location.href += urlToPush;
 
   // Toggle data-active
   if (tag.parentNode.dataset.active == "true") {
     tag.parentNode.dataset.active="false"
   } else {
     tag.parentNode.dataset.active="true"
+  }
+
+  if (searchParams.has('tag') == true) {
+    searchParams.set('tag', urlToPush)
+  } else {
+    window.location.href += urlToPush;
   }
 }
 
