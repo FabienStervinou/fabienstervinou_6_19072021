@@ -14,8 +14,6 @@ let url = window.location;
 let paramsString = window.location.search;
 let searchParams = new URLSearchParams(paramsString);
 
-console.log('url :', url.href);
-
 // home
 if ((searchParams.get('page') === 'home' && url.pathname === "/") || searchParams.get('page') == null ) { 
   try {
@@ -55,34 +53,45 @@ if (searchParams.get('page') == 'photographer' && searchParams.get('id') != null
 }
 
 // :tag
-if (searchParams.get('tag') != null ) {
+if (sessionStorage.getItem('tag') === undefined ) {
   let tagData = new Data();
-  tagData.getAllTags()
+  tagData.getAllTags();
 }
 
-// TAG logic
-function addTagInUrlParam(e) {
-  let tag = e.target
+function onClickTag(e) {
+  let tag = e.target;
   let tagLabel = tag.id.split('_')[1];
-  let urlToPush = `&tag=${tagLabel}`;
+  let tagsLocal = JSON.parse(sessionStorage.getItem('tag'));
+  let res = [];
 
-  // Toggle data-active
-  if (tag.parentNode.dataset.active == "true") {
-    tag.parentNode.dataset.active="false"
-  } else {
-    tag.parentNode.dataset.active="true"
+  // Add new tag and create sessionStorage
+  if (tagsLocal == undefined) {
+    res.push(tagLabel)
+    return sessionStorage.setItem('tag', JSON.stringify(res));
   }
 
-  if (searchParams.has('tag') == true) {
-    searchParams.set('tag', urlToPush)
-  } else {
-    window.location.href += urlToPush;
+  if (tagsLocal != null) {
+    // Remove single tag 
+    if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
+      return sessionStorage.removeItem('tag')
+    }
+
+    // Multiple tag
+    if (tagsLocal.length >= 1 && !tagsLocal.includes(tagLabel)) {
+      tagsLocal.push(tagLabel);
+      sessionStorage.setItem('tag', JSON.stringify(tagsLocal));
+      return tag.parentNode.dataset.active = true;
+    } else {
+      tagsLocal.splice(tagsLocal.indexOf(tagLabel), 1);
+      sessionStorage.setItem('tag', JSON.stringify(tagsLocal));
+      return tag.parentNode.dataset.active = false;
+    }
   }
 }
 
+// Set EventListener on all tags
 let tags = document.getElementsByClassName('tags_item');
-
 for (let i = 0; i < tags.length; i++) {
-  const tag = tags[i];
-  tag.addEventListener('click', addTagInUrlParam)
+  let tag = tags[i];
+  tag.addEventListener('click', onClickTag);
 }
