@@ -28,7 +28,7 @@ export default class Photographer {
 
   getTagsHTML() {
     return this.tags.map(tag => `
-      <li class="tags_item" data-active="false">
+      <li id="${tag}" class="tags_item" data-active="false">
         <a id="tag_${tag}">${tag}</a> 
       </li>
     `).join('');
