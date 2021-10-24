@@ -58,6 +58,18 @@ if (sessionStorage.getItem('tag') === undefined ) {
   tagData.getAllTags();
 }
 
+function toggleTagDataOf(tag) {
+  let tags = document.querySelectorAll(`#${tag}`);
+  for (let i = 0; i < tags.length; i++) {
+    const element = tags[i];
+    if (element.dataset.active == 'true') {
+      element.dataset.active = "false"
+    } else {
+      element.dataset.active = "true"
+    }
+  }
+}
+
 function onClickTag(e) {
   let tag = e.target;
   let tagLabel = tag.id.split('_')[1];
@@ -66,13 +78,15 @@ function onClickTag(e) {
 
   // Add new tag and create sessionStorage
   if (tagsLocal == undefined) {
-    res.push(tagLabel)
+    res.push(tagLabel);
+    toggleTagDataOf(tagLabel);
     return sessionStorage.setItem('tag', JSON.stringify(res));
   }
 
   if (tagsLocal != null) {
     // Remove single tag 
     if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
+      toggleTagDataOf(tagLabel);
       return sessionStorage.removeItem('tag')
     }
 
@@ -80,10 +94,12 @@ function onClickTag(e) {
     if (tagsLocal.length >= 1 && !tagsLocal.includes(tagLabel)) {
       tagsLocal.push(tagLabel);
       sessionStorage.setItem('tag', JSON.stringify(tagsLocal));
+      toggleTagDataOf(tagLabel);
       return tag.parentNode.dataset.active = true;
     } else {
       tagsLocal.splice(tagsLocal.indexOf(tagLabel), 1);
       sessionStorage.setItem('tag', JSON.stringify(tagsLocal));
+      toggleTagDataOf(tagLabel);
       return tag.parentNode.dataset.active = false;
     }
   }
@@ -95,3 +111,19 @@ for (let i = 0; i < tags.length; i++) {
   let tag = tags[i];
   tag.addEventListener('click', onClickTag);
 }
+
+function toggleTagDataAttribute() {
+  let tagsArray = JSON.parse(sessionStorage.getItem('tag'));
+
+  if (tagsArray != null) {
+    for (let i = 0; i < tagsArray.length; i++) {
+      const tagItem = tagsArray[i];
+      document.querySelectorAll(`#${tagItem}`).forEach(element => {
+        element.dataset.active = true
+      });
+    }
+  }
+}
+
+// If tag in sessionStorage set data-active to TRUE
+toggleTagDataAttribute();
