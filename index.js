@@ -2,6 +2,7 @@ import './assets/sass/main.scss';
 import Data from './script/utils/Data.js';
 import Photographer from './script/class/Photographer.js';
 import Photos from './script/class/Photos.js';
+import Tags from './script/class/Tags.js';
 
 /*  Route logic
     /                       OK
@@ -14,10 +15,10 @@ let url = window.location;
 let paramsString = window.location.search;
 let searchParams = new URLSearchParams(paramsString);
 
-// home
-if ((searchParams.get('page') === 'home' && url.pathname === "/") || searchParams.get('page') == null ) { 
+function initHomePage() {
   try {
     let data = new Data();
+    document.querySelector('.cards').innerHTML = ``;
 
     for (let i = 0; i < data.photographers.length; i++) {
       const item = data.photographers[i];
@@ -28,6 +29,14 @@ if ((searchParams.get('page') === 'home' && url.pathname === "/") || searchPara
   } catch (error) {
     console.error(error);
   }
+}
+
+// home
+if ((searchParams.get('page') === 'home' && url.pathname === "/") || searchParams.get('page') == null ) { 
+  const tags = new Tags();
+  tags.init();
+
+  initHomePage();
 }
 
 // photographer/:id
@@ -70,6 +79,21 @@ function toggleTagDataOf(tag) {
   }
 }
 
+function togglePhotographerCard(e) {
+  let localTags = JSON.parse(sessionStorage.getItem('tag'));
+  let data = new Data();
+  let photographerByTags = data.getPhotographerByTag(localTags);
+
+  // TODO: create loader 
+  document.querySelector('.cards').innerHTML = ``;
+
+  for (let i = 0; i < photographerByTags.length; i++) {
+    const item = photographerByTags[i];
+    let photographer = new Photographer(item);
+    photographer.generateCardDOM();
+  }
+}
+
 function onClickTag(e) {
   let tag = e.target;
   let tagLabel = tag.id.split('_')[1];
@@ -86,7 +110,7 @@ function onClickTag(e) {
   if (tagsLocal != null) {
     // Remove single tag 
     if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
-      toggleTagDataOf(tagLabel);
+      initHomePage();
       return sessionStorage.removeItem('tag')
     }
 
@@ -109,7 +133,10 @@ function onClickTag(e) {
 let tags = document.getElementsByClassName('tags_item');
 for (let i = 0; i < tags.length; i++) {
   let tag = tags[i];
-  tag.addEventListener('click', onClickTag);
+  tag.addEventListener('click',(e) => {
+    onClickTag(e);
+    togglePhotographerCard(e);
+  });
 }
 
 function toggleTagDataAttribute() {
