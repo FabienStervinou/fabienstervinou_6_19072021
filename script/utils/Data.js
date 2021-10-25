@@ -13,7 +13,8 @@ export default class Data {
 
     for (let i = 0; i < data.length; i++) {
       const photographer = data[i].tags;
-      for (let i = 0; i < photographer.length; i++) {
+
+      for (let i = 0; i < photographer.length; i++) { 
         const tag = photographer[i];
         result.push(tag)
       }
@@ -22,28 +23,24 @@ export default class Data {
 
   getUniqueData(array){
     var uniqueArray = [];
-    
+
     for(let i = 0; i < array.length; i++){
+
       if(uniqueArray.indexOf(array[i]) === -1) {
-          uniqueArray.push(array[i]);
+        uniqueArray.push(array[i]);
       }
     }
     return uniqueArray;
   }
 
-  getPhotographerByTag(tag) {
-    let data = this.photographers;
+  getPhotographerByTag(tags) {
+    let photographers = this.photographers;
     let result = [];
 
-    for (let i = 0; i < data.length; i++) {
-      const photographer = data[i];
+    for (const photographer of photographers) {
 
-      for (let i = 0; i < tag.length; i++) {
-        const tagtest = tag[i];
-
-        if (photographer.tags.indexOf(tagtest) != -1) {
-          result.push(photographer);
-        }
+      if (tags.every((val) => photographer.tags.includes(val))) {
+        result.push(photographer);
       }
     }
     return this.getUniqueData(result);
