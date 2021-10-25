@@ -66,7 +66,6 @@ export default class Photographer {
   generateCardDOM() {
     let cardWrapper = document.querySelector('.cards');
 
-
     const cardDOM = `
     <article class="card-item">
         <header class="card-header">
