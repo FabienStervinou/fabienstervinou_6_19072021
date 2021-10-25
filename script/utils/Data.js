@@ -21,18 +21,6 @@ export default class Data {
     }
   }
 
-  getUniqueData(array){
-    var uniqueArray = [];
-
-    for(let i = 0; i < array.length; i++){
-
-      if(uniqueArray.indexOf(array[i]) === -1) {
-        uniqueArray.push(array[i]);
-      }
-    }
-    return uniqueArray;
-  }
-
   getPhotographerByTag(tags) {
     let photographers = this.photographers;
     let result = [];
@@ -43,6 +31,6 @@ export default class Data {
         result.push(photographer);
       }
     }
-    return this.getUniqueData(result);
+    return result;
   }
 }
