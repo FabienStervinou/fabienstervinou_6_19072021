@@ -19,4 +19,33 @@ export default class Data {
       }
     }
   }
+
+  getUniqueData(array){
+    var uniqueArray = [];
+    
+    for(let i = 0; i < array.length; i++){
+      if(uniqueArray.indexOf(array[i]) === -1) {
+          uniqueArray.push(array[i]);
+      }
+    }
+    return uniqueArray;
+  }
+
+  getPhotographerByTag(tag) {
+    let data = this.photographers;
+    let result = [];
+
+    for (let i = 0; i < data.length; i++) {
+      const photographer = data[i];
+
+      for (let i = 0; i < tag.length; i++) {
+        const tagtest = tag[i];
+
+        if (photographer.tags.indexOf(tagtest) != -1) {
+          result.push(photographer);
+        }
+      }
+    }
+    return this.getUniqueData(result);
+  }
 }
