@@ -79,18 +79,23 @@ function toggleTagDataOf(tag) {
   }
 }
 
-function togglePhotographerCard(e) {
+function togglePhotographerCard() {
   let localTags = JSON.parse(sessionStorage.getItem('tag'));
   let data = new Data();
   let photographerByTags = data.getPhotographerByTag(localTags);
 
-  // TODO: create loader 
   document.querySelector('.cards').innerHTML = ``;
 
-  for (let i = 0; i < photographerByTags.length; i++) {
-    const item = photographerByTags[i];
-    let photographer = new Photographer(item);
-    photographer.generateCardDOM();
+  if (photographerByTags != undefined) {
+    for (const photographer of photographerByTags) {
+        let photographerToPush = new Photographer(photographer);
+        photographerToPush.generateCardDOM();
+    }
+  } else {
+    for (const photographer of data.photographers) {
+      let photographerToPush = new Photographer(photographer);
+      photographerToPush.generateCardDOM();
+    }
   }
 }
 
@@ -105,9 +110,7 @@ function onClickTag(e) {
     res.push(tagLabel);
     toggleTagDataOf(tagLabel);
     return sessionStorage.setItem('tag', JSON.stringify(res));
-  }
-
-  if (tagsLocal != null) {
+  } else {
     // Remove single tag 
     if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
       initHomePage();
@@ -135,7 +138,7 @@ for (let i = 0; i < tags.length; i++) {
   let tag = tags[i];
   tag.addEventListener('click',(e) => {
     onClickTag(e);
-    togglePhotographerCard(e);
+    togglePhotographerCard();
   });
 }
 
