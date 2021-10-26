@@ -25,12 +25,14 @@ export default class Data {
     let photographers = this.photographers;
     let result = [];
 
-    for (const photographer of photographers) {
-
-      if (tags.every((val) => photographer.tags.includes(val))) {
-        result.push(photographer);
+    if (tags != null) {
+      for (const photographer of photographers) {
+  
+        if (tags.every((val) => photographer.tags.includes(val))) {
+          result.push(photographer);
+        }
       }
+      return result;
     }
-    return result;
   }
 }
