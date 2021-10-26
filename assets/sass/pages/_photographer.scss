@@ -250,30 +250,53 @@
     border-radius: 5px;
     background-color: $color-primary;
 
-    a {
+    &-item {
       display: flex;
       align-items: center;
-      height: 20px;
-      color: $color-white;
-      padding: 20px 30px 20px 20px;
 
-      &:nth-child(2) {
+      a {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        color: $color-white;
+        padding: 15px 0 10px 10px;
+      }
+
+      &:not(:first-child) {
         display: none;
       }
 
-      &:nth-child(3) {
-        display: none;
+      .fa-angle-up {
+        color: white;
+        padding: 15px 10px;
+        font-size: 20px;
+
+        &:hover {
+          cursor: grab;
+        }
       }
     }
 
-    &.open {
-      a {
-        &:nth-child(2) {
+
+  &.open {
+    .dropdownContent-item {
+        &:not(:first-child) {
           display: block;
+          position: relative;
+
+          &::before {
+            background-color: #fff;
+            content: "";
+            height: 1px;
+            width: calc(100% - 20px);
+            position: absolute;
+            top: 0;
+            left: 10px;
+          }
         }
 
-        &:nth-child(3) {
-          display: block;
+        i.fa-angle-up {
+          transform: rotate(180deg);
         }
       }
     }
