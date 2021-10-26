@@ -1,13 +1,13 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const dev = process.env.NODE_ENV === 'dev';
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const dev = process.env.NODE_ENV === 'dev'
 
 module.exports = {
   entry: {
     main: ['./index.js'],
-    photographer : ['./pages/index.js']
+    photographer: ['./pages/index.js']
   },
   output: {
     path: path.resolve('./dist'),
@@ -16,7 +16,7 @@ module.exports = {
   },
   watch: true,
   plugins: [
-    new MiniCssExtractPlugin(), 
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
       chunks: ['main']
@@ -40,8 +40,8 @@ module.exports = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
+          'css-loader',
+          'sass-loader'
         ]
       },
       {
@@ -69,4 +69,4 @@ module.exports = {
       new CssMinimizerPlugin()
     ]
   }
-};
+}
