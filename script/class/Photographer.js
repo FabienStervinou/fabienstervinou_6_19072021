@@ -1,40 +1,40 @@
 import Photos from '../class/Photos.js'
 
 export default class Photographer {
-  constructor(data) {
-    this.id = data.id;
-    this.name = data.name;
-    this.firstname = data.name.replace('-', '').replace(' ', '');
-    this.city = data.city;
-    this.country = data.country;
-    this.price = data.price;
-    this.tagline = data.tagline;
-    this.tags = data.tags;
-    this.portrait = data.portrait;
+  constructor (data) {
+    this.id = data.id
+    this.name = data.name
+    this.firstname = data.name.replace('-', '').replace(' ', '')
+    this.city = data.city
+    this.country = data.country
+    this.price = data.price
+    this.tagline = data.tagline
+    this.tags = data.tags
+    this.portrait = data.portrait
   }
 
-  init() {
+  init () {
     this.updateTitleHTML()
     this.getTags()
   }
 
-  getPicturePath() {
+  getPicturePath () {
     return `./assets/img/Photographers/${this.portrait}`
   }
 
-  getTags() {
+  getTags () {
     return this.tags
   }
 
-  getTagsHTML() {
+  getTagsHTML () {
     return this.tags.map(tag => `
       <li id="${tag}" class="tags_item" data-active="false">
         <a id="tag_${tag}">${tag}</a> 
       </li>
-    `).join('');
+    `).join('')
   }
 
-  getPhotosHTML() {
+  getPhotosHTML () {
     const photos = new Photos()
     let photographerPhotos = photos.getPhotoByPhotographerId(this.id)
 
@@ -56,15 +56,15 @@ export default class Photographer {
           </div>
         </div>
       </article>
-    `).join('');
+    `).join('')
   }
 
   updateTitleHTML () {
     document.title += ` | ${this.name}`
   }
 
-  generateCardDOM() {
-    let cardWrapper = document.querySelector('.cards');
+  generateCardDOM () {
+    let cardWrapper = document.querySelector('.cards')
 
     const cardDOM = `
     <article class="card-item">
@@ -82,13 +82,13 @@ export default class Photographer {
           ${this.getTagsHTML()}
         </ol>
       </footer>
-    </article>`;
+    </article>`
 
-    cardWrapper.innerHTML += cardDOM;
+    cardWrapper.innerHTML += cardDOM
   }
 
-  generatePhotographerDOM() {
-    let photographerWrapper = document.querySelector('#app');
+  generatePhotographerDOM () {
+    let photographerWrapper = document.querySelector('#app')
 
     const photographerDOM = `
     <header class="header-nav">
@@ -189,9 +189,8 @@ export default class Photographer {
         </form>
       </dialog>
     </main>
-    `;
+    `
 
-    photographerWrapper.innerHTML = photographerDOM;
-
+    photographerWrapper.innerHTML = photographerDOM
   }
 }

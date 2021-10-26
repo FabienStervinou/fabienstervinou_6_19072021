@@ -1,7 +1,7 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es6": true
     },
     "extends": [
         "standard"
@@ -11,10 +11,14 @@
         "sourceType": "module"
     },
     "rules": {
-        "formatOnSave": true,
+        "semi": ["error", "never"],
         "quotes": [
             "error",
-            "simple"
-        ]
+            "single"
+        ],
+        "object-curly-newline": ["error", "always"],
+        "no-var": 2,
+        "prefer-const": "off",
+        "eqeqeq": "off"
     }
 }

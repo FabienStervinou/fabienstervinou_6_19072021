@@ -1,9 +1,9 @@
 export default class Error {
-  constructor(message) {
+  constructor (message) {
     this.message = message
   }
 
-  showMessage() {
+  showMessage () {
     console.log(this.mesaage)
   }
 }
