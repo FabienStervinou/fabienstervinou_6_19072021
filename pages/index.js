@@ -71,4 +71,26 @@ if (searchParams.get('page') === 'photographer') {
 
     return isValidate
   }
+
+  const dropdown = document.getElementById('dropdownContent')
+  const filterArrow = document.getElementsByClassName('fa-angle-up')
+  filterArrow[0].addEventListener('click', toggleFiltersOpen)
+
+  function toggleFiltersOpen () {
+    dropdown.classList.toggle('open')
+  }
+
+  // Like counter
+  const counters = document.getElementsByClassName('pictureItem-contentSocial')
+  for (const counter of counters) {
+    counter.addEventListener('click', toggleCounter)
+  }
+
+  function toggleCounter (e) {
+    let childrens = e.target.childNodes
+    console.log('childrens :', childrens)
+    for (const children of childrens) {
+      console.log('children :', children)
+    }
+  }
 }
