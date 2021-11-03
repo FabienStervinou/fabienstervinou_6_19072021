@@ -6,8 +6,7 @@ const dev = process.env.NODE_ENV === 'dev'
 
 module.exports = {
   entry: {
-    main: ['./index.js'],
-    photographer: ['./pages/index.js']
+    main: ['./index.js', './pages/index.js']
   },
   output: {
     path: path.resolve('./dist'),
@@ -20,11 +19,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
       chunks: ['main']
-    }),
-    new HtmlWebpackPlugin({
-      template: './pages/photographer.html',
-      filename: 'photographer.html',
-      chunks: ['./pages/index.js']
     })
   ],
   module: {
