@@ -48,7 +48,7 @@ export default class Photographer {
             <p>${photo.title}</p>
           </div>
           <div class="pictureItem-contentSocial">
-            <span>${photo.likes}</span>
+            <span id="counter">${photo.likes}</span>
             <div class="likes">
               <i class="far fa-heart" aria-hidden="true"></i>
               <i class="fas fa-heart" aria-hidden="true"></i>
@@ -117,7 +117,7 @@ export default class Photographer {
       </section>
       <section class="dropdown">
         <p class="dropdownText">Trier par</p>
-        <div class="dropdownContent open">
+        <div id="dropdownContent" class="dropdownContent">
           <div class="dropdownContent-item">
             <a href="#">Popularité</a>
             <i class="fas fa-angle-up"></i>
@@ -145,9 +145,9 @@ export default class Photographer {
         </div>
       </aside>
       <dialog id="modalContact" class="modalContact">
-        <form id="modalContact-form" name="formContact" class="modalContact-form" method="GET" action="photographer.html" >
+        <form id="modalContact-form" name="formContact" class="modalContact-form" >
           <h1>Contactez-moi<br />${this.name}</h1>
-          <button id="close" class="close" title="Close Contact modal">
+          <button id="closeModal" class="close" title="Close Contact modal">
             <i class="fa fa-times"></i>
           </button>
           <div 
@@ -189,6 +189,7 @@ export default class Photographer {
               id="message" 
               type="text" 
               class="modalContact-input">
+            </textarea>
           </div>
           <div class="modalContact-item">
             <input id="submitBtn" class="btn submit" type="submit" value="Envoyer">
@@ -196,6 +197,7 @@ export default class Photographer {
         </form>
       </dialog>
     </main>
+    <script type="module" src="../dist/photographer.js"></script>
     `
 
     photographerWrapper.innerHTML = photographerDOM
