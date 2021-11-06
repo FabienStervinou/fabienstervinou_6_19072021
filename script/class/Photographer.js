@@ -11,6 +11,7 @@ export default class Photographer {
     this.tagline = data.tagline
     this.tags = data.tags
     this.portrait = data.portrait
+    this.likes = this.getLikes()
   }
 
   init () {
@@ -137,7 +138,7 @@ export default class Photographer {
       </section>
       <aside class="photographerInfo">
         <div class="photographerInfo-likes">
-          <span>289541</span>
+          <span>${this.likes}</span>
           <i class="fas fa-heart" aria-hidden="true"></i>
         </div>
         <div class="photographerInfo-prices">
@@ -201,5 +202,17 @@ export default class Photographer {
     `
 
     photographerWrapper.innerHTML = photographerDOM
+  }
+
+  getLikes () {
+    const photos = new Photos()
+    let photographerPhotos = photos.getPhotoByPhotographerId(this.id)
+    let likesCounter = 0
+
+    for (const item of photographerPhotos) {
+      let likeNum = item.likes
+      likesCounter += likeNum
+    }
+    return likesCounter
   }
 }

@@ -102,8 +102,6 @@ function onClickTag (e) {
   let tagsLocal = JSON.parse(sessionStorage.getItem('tag'))
   let res = []
 
-  console.log('click tag')
-
   // Add new tag and create sessionStorage
   if (tagsLocal == undefined) {
     res.push(tagLabel)
