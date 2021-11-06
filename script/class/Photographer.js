@@ -48,10 +48,10 @@ export default class Photographer {
             <p>${photo.title}</p>
           </div>
           <div class="pictureItem-contentSocial">
-            <span id="counter">${photo.likes}</span>
-            <div class="likes">
-              <i class="far fa-heart" aria-hidden="true"></i>
-              <i class="fas fa-heart" aria-hidden="true"></i>
+            <span id="counter" data-value="${photo.likes}"></span>
+            <div class="likes" data-liked="false">
+              <i class="far fa-heart" aria-hidden="true" style="display: block;"></i>
+              <i class="fas fa-heart" aria-hidden="true" style="display: none;"></i>
             </div>
           </div>
         </div>

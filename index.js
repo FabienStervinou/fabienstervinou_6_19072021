@@ -5,10 +5,9 @@ import Photos from './script/class/Photos.js'
 import Tags from './script/class/Tags.js'
 
 /*  Route logic
-    /                       OK
+    /
     /:tag
-    /photographer
-    /photographer/:id       OK
+    /photographer/:id
     /photographer/:id/:tag
 */
 let url = window.location
@@ -102,6 +101,8 @@ function onClickTag (e) {
   let tagLabel = tag.id.split('_')[1]
   let tagsLocal = JSON.parse(sessionStorage.getItem('tag'))
   let res = []
+
+  console.log('click tag')
 
   // Add new tag and create sessionStorage
   if (tagsLocal == undefined) {

@@ -87,10 +87,36 @@ if (searchParams.get('page') === 'photographer') {
   }
 
   function toggleCounter (e) {
-    let childrens = e.target.childNodes
-    console.log('childrens :', childrens)
-    for (const children of childrens) {
-      console.log('children :', children)
+    let childrens = []
+    let childsNode = e.target.parentNode.childNodes
+
+    for (const child of childsNode) {
+      if (child.nodeType == Node.ELEMENT_NODE) {
+        childrens.push(child)
+      }
+    }
+
+    for (const item of childrens) {
+      if (item.style.display == 'block') {
+        item.style.display = 'none'
+      } else {
+        item.style.display = 'block'
+      }
+    }
+
+    let parent = e.target.parentNode
+    let parentData = parent.dataset
+    let counter = e.target.parentNode.parentNode.querySelector('#counter').dataset
+    let number = parseInt(counter.value, 10)
+
+    if (parentData.liked == 'false') {
+      parentData.liked = true
+      let numberInc = ++number
+      counter.value = numberInc
+    } else {
+      parentData.liked = false
+      let numberDec = --number
+      counter.value = numberDec
     }
   }
 }
