@@ -17,11 +17,20 @@ if (searchParams.get('page') === 'photographer') {
     modalContact.style.display = 'block'
   }
 
+  /**
+   *
+   * @param {Event} e
+   */
   function closeModalContact (e) {
     e.preventDefault()
     modalContact.style.display = 'none'
   }
 
+  /**
+   *
+   * @param {Event} e
+   * @returns Boolean isValidate
+   */
   function submitFormContact (e) {
     e.preventDefault()
 

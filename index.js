@@ -64,6 +64,10 @@ if (sessionStorage.getItem('tag') === undefined) {
   tagData.getAllTags()
 }
 
+/**
+ *
+ * @param {String} tag
+ */
 function toggleTagDataOf (tag) {
   let tags = document.querySelectorAll(`#${tag}`)
   for (let i = 0; i < tags.length; i++) {
@@ -94,6 +98,7 @@ function togglePhotographerCard () {
       photographerToPush.generateCardDOM()
     }
   }
+  setEventTags()
 }
 
 function onClickTag (e) {
@@ -130,13 +135,15 @@ function onClickTag (e) {
 }
 
 // Set EventListener on all tags
-let tags = document.getElementsByClassName('tags_item')
-for (let i = 0; i < tags.length; i++) {
-  let tag = tags[i]
-  tag.addEventListener('click', (e) => {
-    onClickTag(e)
-    togglePhotographerCard()
-  })
+function setEventTags () {
+  let tags = document.getElementsByClassName('tags_item')
+  for (let i = 0; i < tags.length; i++) {
+    let tag = tags[i]
+    tag.addEventListener('click', (e) => {
+      onClickTag(e)
+      togglePhotographerCard()
+    })
+  }
 }
 
 function toggleTagDataAttribute () {
@@ -153,4 +160,5 @@ function toggleTagDataAttribute () {
 }
 
 // If tag in sessionStorage set data-active to TRUE
+setEventTags()
 toggleTagDataAttribute()
