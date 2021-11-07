@@ -339,6 +339,11 @@
 
     &-likes {
       padding-right: 60px;
+      position: relative;
+
+      &::before {
+        content: attr(data-likes);
+      }
     }
 
     &-prices {
