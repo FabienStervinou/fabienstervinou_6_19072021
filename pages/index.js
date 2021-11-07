@@ -1,6 +1,10 @@
 let searchParams = new URLSearchParams(window.location.search)
 
 if (searchParams.get('page') === 'photographer') {
+  // Reset Session storage
+  if (sessionStorage.getItem('tag') != undefined) {
+    sessionStorage.removeItem('tag')
+  }
   // DOM Elmement
   const modalContact = document.getElementById('modalContact')
   const contactBtn = document.getElementById('contactBtn')
@@ -102,6 +106,10 @@ if (searchParams.get('page') === 'photographer') {
     counter.addEventListener('click', toggleCounter)
   }
 
+  /**
+   *
+   * @param {Event} e
+   */
   function toggleCounter (e) {
     let childrens = []
     let childsNode = e.target.parentNode.childNodes
