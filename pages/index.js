@@ -117,15 +117,21 @@ if (searchParams.get('page') === 'photographer') {
     let parentData = parent.dataset
     let counter = e.target.parentNode.parentNode.querySelector('#counter').dataset
     let number = parseInt(counter.value, 10)
+    let totalLikes = document.getElementById('totalLikes').dataset
+    let totalLikesNum = parseInt(totalLikes.likes, 10)
 
     if (parentData.liked == 'false') {
       parentData.liked = true
       let numberInc = ++number
       counter.value = numberInc
+      let totalInc = ++totalLikesNum
+      totalLikes.likes = totalInc
     } else {
       parentData.liked = false
       let numberDec = --number
       counter.value = numberDec
+      let totalDes = --totalLikesNum
+      totalLikes.likes = totalDes
     }
   }
 }

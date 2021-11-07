@@ -137,8 +137,7 @@ export default class Photographer {
 
       </section>
       <aside class="photographerInfo">
-        <div class="photographerInfo-likes">
-          <span>${this.likes}</span>
+        <div id="totalLikes" class="photographerInfo-likes" data-likes=${this.likes}>
           <i class="fas fa-heart" aria-hidden="true"></i>
         </div>
         <div class="photographerInfo-prices">
