@@ -81,6 +81,13 @@ if (searchParams.get('page') === 'photographer') {
     return isValidate
   }
 
+  // Close modal if user click outside form
+  window.document.getElementById('modalContact').onclick = function (e) {
+    if (e.target == document.getElementById('modalContact')) {
+      closeModalContact(e)
+    }
+  }
+
   const dropdown = document.getElementById('dropdownContent')
   const filterArrow = document.getElementsByClassName('fa-angle-up')
   filterArrow[0].addEventListener('click', toggleFiltersOpen)
