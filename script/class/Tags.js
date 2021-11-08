@@ -26,11 +26,14 @@ export default class Tags {
   setHTMLTags () {
     const tags = this.allTags
     const target = document.getElementById('tags')
-    const res = tags.map(tag => `
-      <li id="${tag}" class="tags_item" data-active="false">
-        <a id="tag_${tag}">${tag}</a> 
-      </li>
-    `).join('')
-    target.innerHTML = res
+
+    if (target != null) {
+      const res = tags.map(tag => `
+        <li id="${tag}" class="tags_item" data-active="false">
+          <a id="tag_${tag}">${tag}</a> 
+        </li>
+      `).join('')
+      target.innerHTML = res
+    }
   }
 }
