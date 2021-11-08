@@ -60,6 +60,34 @@ export default class Photographer {
     `).join('')
   }
 
+  getPhotosHTMLByTag (tag) {
+    const photos = new Photos()
+    let photographerPhotos = photos.getPhotoByPhotographerIdTag(this.id, tag)
+    let photoWrapper = document.querySelector('.pictureList')
+
+    const photoByTag = photographerPhotos.map(photo => `
+      <article class="pictureItem">
+        <div class="pictureItem-img">
+          <img src="../assets/img/${this.name.split(' ')[0]}/${photo.image}" alt="" />
+        </div>
+        <div class="pictureItem-content">
+          <div class="pictureItem-contentText">
+            <p>${photo.title}</p>
+          </div>
+          <div class="pictureItem-contentSocial">
+            <span id="counter" data-value="${photo.likes}"></span>
+            <div class="likes" data-liked="false">
+              <i class="far fa-heart" aria-hidden="true" style="display: block;"></i>
+              <i class="fas fa-heart" aria-hidden="true" style="display: none;"></i>
+            </div>
+          </div>
+        </div>
+      </article>
+    `).join('')
+
+    photoWrapper.innerHTML = photoByTag
+  }
+
   updateTitleHTML () {
     document.title += ` | ${this.name}`
   }

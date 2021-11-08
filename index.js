@@ -1,7 +1,6 @@
 import './assets/sass/main.scss'
 import Data from './script/utils/Data.js'
 import Photographer from './script/class/Photographer.js'
-import Photos from './script/class/Photos.js'
 import Tags from './script/class/Tags.js'
 
 /*  Route logic
@@ -34,6 +33,10 @@ if ((searchParams.get('page') === 'home' && url.pathname === '/') || searchParam
   tags.init()
 
   initHomePage()
+
+  // If tag in sessionStorage set data-active to TRUE
+  setEventTags()
+  toggleTagDataAttribute()
 }
 
 // photographer/:id
@@ -48,20 +51,11 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id') != nul
     if (result.length > 0) {
       const photographer = new Photographer(result[0])
       photographer.generatePhotographerDOM()
-
-      const photos = new Photos()
-      photos.getPhotoByPhotographerId(parseInt(paramsId, 10))
     }
   } catch (error) {
     console.error(error)
   }
 }
-
-// :tag
-// if (sessionStorage.getItem('tag') === undefined) {
-//   let tagData = new Data()
-//   tagData.getAllTags()
-// }
 
 /**
  *
@@ -70,13 +64,11 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id') != nul
 function toggleTagActive () {
   let localTags = JSON.parse(sessionStorage.getItem('tag'))
   if (localTags != null && localTags.length > 0) {
-    console.log('toggleTagActive')
     for (let i = 0; i < localTags.length; i++) {
       let localTag = localTags[i]
       let tags = document.querySelectorAll(`#${localTag}`)
       for (let i = 0; i < tags.length; i++) {
         const element = tags[i]
-        console.log(element)
         if (element.dataset.active == 'true') {
           element.dataset.active = 'false'
         } else if (element.dataset.active == 'false') {
@@ -113,34 +105,34 @@ function togglePhotographerCard () {
  * @param {Event} e
  */
 function onClickTag (e) {
-  console.log('onClickTag')
   let tag = e.target
   let tagLabel = tag.id.split('_')[1]
   let tagsLocal = JSON.parse(sessionStorage.getItem('tag'))
   let res = []
 
   // Add new tag and create sessionStorage
-  if (tagsLocal == undefined || tagsLocal.length == 0) {
-    res.push(tagLabel)
-    sessionStorage.setItem('tag', JSON.stringify(res))
-    // Remove single tag
-  } else if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
-    initHomePage()
-    sessionStorage.removeItem('tag')
-    // Multiple tag
-  } else if (tagsLocal.length >= 1 && !tagsLocal.includes(tagLabel)) {
-    tagsLocal.push(tagLabel)
-    sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
-  } else {
-    tagsLocal.splice(tagsLocal.indexOf(tagLabel), 1)
-    sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
+  if ((tagLabel != null)) {
+    if (tagsLocal == undefined || tagsLocal.length == 0) {
+      res.push(tagLabel)
+      sessionStorage.setItem('tag', JSON.stringify(res))
+      // Remove single tag
+    } else if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
+      initHomePage()
+      sessionStorage.removeItem('tag')
+      // Multiple tag
+    } else if (tagsLocal.length >= 1 && !tagsLocal.includes(tagLabel)) {
+      tagsLocal.push(tagLabel)
+      sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
+    } else {
+      tagsLocal.splice(tagsLocal.indexOf(tagLabel), 1)
+      sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
+    }
   }
 }
 
 // Set EventListener on all tags
 function setEventTags () {
   let tags = document.getElementsByClassName('tags_item')
-  console.log('setEventTags')
   const test = new Tags()
   test.init()
 
@@ -168,7 +160,3 @@ function toggleTagDataAttribute () {
     }
   }
 }
-
-// If tag in sessionStorage set data-active to TRUE
-setEventTags()
-toggleTagDataAttribute()

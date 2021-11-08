@@ -1,11 +1,14 @@
+import Data from '../script/utils/Data.js'
+import Photographer from '../script/class/Photographer.js'
+
 let searchParams = new URLSearchParams(window.location.search)
 
-if (searchParams.get('page') === 'photographer') {
+if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   // Reset Session storage
   if (sessionStorage.getItem('tag') != undefined) {
     sessionStorage.removeItem('tag')
   }
-  // DOM Elmement
+  // DOM Element
   const modalContact = document.getElementById('modalContact')
   const contactBtn = document.getElementById('contactBtn')
   const closeBtn = document.getElementById('closeModal')
@@ -149,4 +152,69 @@ if (searchParams.get('page') === 'photographer') {
       totalLikes.likes = totalDes
     }
   }
+
+  // FILTER
+  function initFilterListener () {
+    let tags = document.querySelectorAll('.tags_item')
+
+    for (let i = 0; i < tags.length; i++) {
+      const tag = tags[i]
+      tag.addEventListener('click', onClickTag)
+    }
+  }
+
+  function onClickTag (e) {
+    let tag = e.target.id.split('_')[1]
+    let tagsLocal = JSON.parse(sessionStorage.getItem('tag'))
+    let res = []
+
+    // Add new tag and create sessionStorage
+    if (tag != null) {
+      if (tagsLocal == undefined || tagsLocal.length == 0) {
+        res.push(tag)
+        sessionStorage.setItem('tag', JSON.stringify(res))
+        // Remove single tag
+      } else if (tagsLocal.length == 1 && tagsLocal.toString() == tag) {
+        sessionStorage.removeItem('tag')
+        // Multiple tag
+      } else if (tagsLocal.length >= 1 && !tagsLocal.includes(tag)) {
+        tagsLocal.push(tag)
+        sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
+      } else {
+        tagsLocal.splice(tagsLocal.indexOf(tag), 1)
+        sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
+      }
+    }
+
+    let testt = JSON.parse(sessionStorage.getItem('tag'))
+    pictureFilterBy('tag', testt)
+    console.log(testt)
+  }
+
+  /**
+   *
+   * @param {Strinf} key - tag || filter
+   * @param {*} value
+   */
+  function pictureFilterBy (key, value) {
+    let id = searchParams.get('id')
+    let data = new Data()
+    const result = data.photographers.filter(photographer =>
+      photographer.id == id
+    )
+    const photographer = new Photographer(result[0])
+    // By tag
+    if (key && key == 'tag') {
+      if (value) {
+        photographer.getPhotosHTMLByTag(value)
+      }
+      if (value == null) {
+        let target = document.querySelector('.pictureList')
+        const res = photographer.getPhotosHTML()
+        target.innerHTML = res
+      }
+    }
+  }
+
+  initFilterListener()
 }
