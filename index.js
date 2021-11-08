@@ -7,7 +7,6 @@ import Tags from './script/class/Tags.js'
 /*  Route logic
     /
     /:tag
-    /photographer/:id
     /photographer/:id/:tag
 */
 let url = window.location
@@ -59,23 +58,31 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id') != nul
 }
 
 // :tag
-if (sessionStorage.getItem('tag') === undefined) {
-  let tagData = new Data()
-  tagData.getAllTags()
-}
+// if (sessionStorage.getItem('tag') === undefined) {
+//   let tagData = new Data()
+//   tagData.getAllTags()
+// }
 
 /**
  *
  * @param {String} tag
  */
-function toggleTagDataOf (tag) {
-  let tags = document.querySelectorAll(`#${tag}`)
-  for (let i = 0; i < tags.length; i++) {
-    const element = tags[i]
-    if (element.dataset.active == 'true') {
-      element.dataset.active = 'false'
-    } else {
-      element.dataset.active = 'true'
+function toggleTagActive () {
+  let localTags = JSON.parse(sessionStorage.getItem('tag'))
+  if (localTags != null && localTags.length > 0) {
+    console.log('toggleTagActive')
+    for (let i = 0; i < localTags.length; i++) {
+      let localTag = localTags[i]
+      let tags = document.querySelectorAll(`#${localTag}`)
+      for (let i = 0; i < tags.length; i++) {
+        const element = tags[i]
+        console.log(element)
+        if (element.dataset.active == 'true') {
+          element.dataset.active = 'false'
+        } else if (element.dataset.active == 'false') {
+          element.dataset.active = 'true'
+        }
+      }
     }
   }
 }
@@ -101,49 +108,52 @@ function togglePhotographerCard () {
   setEventTags()
 }
 
+/**
+ *
+ * @param {Event} e
+ */
 function onClickTag (e) {
+  console.log('onClickTag')
   let tag = e.target
   let tagLabel = tag.id.split('_')[1]
   let tagsLocal = JSON.parse(sessionStorage.getItem('tag'))
   let res = []
 
   // Add new tag and create sessionStorage
-  if (tagsLocal == undefined) {
+  if (tagsLocal == undefined || tagsLocal.length == 0) {
     res.push(tagLabel)
-    toggleTagDataOf(tagLabel)
-    return sessionStorage.setItem('tag', JSON.stringify(res))
-  } else {
+    sessionStorage.setItem('tag', JSON.stringify(res))
     // Remove single tag
-    if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
-      initHomePage()
-      return sessionStorage.removeItem('tag')
-    }
-
+  } else if (tagsLocal.length == 1 && tagsLocal.toString() == tagLabel) {
+    initHomePage()
+    sessionStorage.removeItem('tag')
     // Multiple tag
-    if (tagsLocal.length >= 1 && !tagsLocal.includes(tagLabel)) {
-      tagsLocal.push(tagLabel)
-      sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
-      toggleTagDataOf(tagLabel)
-      tag.parentNode.dataset.active = true
-    } else {
-      tagsLocal.splice(tagsLocal.indexOf(tagLabel), 1)
-      sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
-      toggleTagDataOf(tagLabel)
-      tag.parentNode.dataset.active = false
-    }
+  } else if (tagsLocal.length >= 1 && !tagsLocal.includes(tagLabel)) {
+    tagsLocal.push(tagLabel)
+    sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
+  } else {
+    tagsLocal.splice(tagsLocal.indexOf(tagLabel), 1)
+    sessionStorage.setItem('tag', JSON.stringify(tagsLocal))
   }
 }
 
 // Set EventListener on all tags
 function setEventTags () {
   let tags = document.getElementsByClassName('tags_item')
+  console.log('setEventTags')
+  const test = new Tags()
+  test.init()
+
   for (let i = 0; i < tags.length; i++) {
     let tag = tags[i]
-    tag.addEventListener('click', (e) => {
+    let eventTags = function (e) {
       onClickTag(e)
       togglePhotographerCard()
-    })
+    }
+    tag.removeEventListener('click', eventTags)
+    tag.addEventListener('click', eventTags)
   }
+  toggleTagActive()
 }
 
 function toggleTagDataAttribute () {

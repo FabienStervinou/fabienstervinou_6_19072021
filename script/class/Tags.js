@@ -31,6 +31,6 @@ export default class Tags {
         <a id="tag_${tag}">${tag}</a> 
       </li>
     `).join('')
-    target.innerHTML += res
+    target.innerHTML = res
   }
 }
