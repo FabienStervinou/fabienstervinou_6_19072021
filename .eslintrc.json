@@ -16,7 +16,8 @@
             "error",
             "single"
         ],
-        "object-curly-newline": ["error", "always"],
+        "object-curly-newline": ["error", { "multiline": true }],
+        "no-case-declarations": "off",
         "no-var": 2,
         "prefer-const": "off",
         "eqeqeq": "off"
