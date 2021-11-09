@@ -200,9 +200,7 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
       }
     }
 
-    let testt = JSON.parse(sessionStorage.getItem('tag'))
-    pictureFilterBy('tag', testt)
-    console.log(testt)
+    pictureFilterBy('tag', JSON.parse(sessionStorage.getItem('tag')))
   }
 
   function onClickFilter (e) {
