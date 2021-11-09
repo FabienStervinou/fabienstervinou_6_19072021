@@ -40,7 +40,7 @@ export default class Photographer {
     let photographerPhotos = photos.getPhotoByPhotographerId(this.id)
 
     return photographerPhotos.map(photo => `
-      <article class="pictureItem">
+      <article class="pictureItem" data-likes="${photo.likes}" data-title="${photo.title}" data-date="${photo.date}" style="order:inherit;">
         <div class="pictureItem-img">
           <img src="../assets/img/${this.name.split(' ')[0]}/${photo.image}" alt="" />
         </div>
@@ -148,14 +148,14 @@ export default class Photographer {
         <p class="dropdownText">Trier par</p>
         <div id="dropdownContent" class="dropdownContent">
           <div class="dropdownContent-item">
-            <a href="#">Popularité</a>
+            <a href="#" data-filter="popularity">Popularité</a>
             <i class="fas fa-angle-up"></i>
           </div>
           <div class="dropdownContent-item">
-            <a href="#">Date</a>
+            <a href="#" data-filter="date">Date</a>
           </div>
           <div class="dropdownContent-item">
-            <a href="#">Titre</a>
+            <a href="#" data-filter="title">Titre</a>
           </div>
         </div>
       </section>

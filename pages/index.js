@@ -153,13 +153,27 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     }
   }
 
+  // UTILS
+  function setFlexOrder (array) {
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i]
+      element.card.style.order = i
+    }
+  }
+
   // FILTER
   function initFilterListener () {
     let tags = document.querySelectorAll('.tags_item')
+    let filters = document.querySelectorAll('.dropdownContent-item a')
 
     for (let i = 0; i < tags.length; i++) {
       const tag = tags[i]
       tag.addEventListener('click', onClickTag)
+    }
+
+    for (let i = 0; i < filters.length; i++) {
+      const filter = filters[i]
+      filter.addEventListener('click', onClickFilter)
     }
   }
 
@@ -191,10 +205,14 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     console.log(testt)
   }
 
+  function onClickFilter (e) {
+    pictureFilterBy('filter', e.target.dataset.filter)
+  }
+
   /**
    *
-   * @param {Strinf} key - tag || filter
-   * @param {*} value
+   * @param {String} key - tag || filter
+   * @param {Array, String} value
    */
   function pictureFilterBy (key, value) {
     let id = searchParams.get('id')
@@ -212,6 +230,45 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
         let target = document.querySelector('.pictureList')
         const res = photographer.getPhotosHTML()
         target.innerHTML = res
+      }
+    }
+
+    // By dropdow filter
+    if (key && key == 'filter') {
+      let objs = []
+      let photoCards = document.querySelectorAll('.pictureList > article')
+      for (let i = 0; i < photoCards.length; i++) {
+        const photoCard = photoCards[i]
+        let res = {
+          card: photoCard,
+          title: photoCard.dataset.title,
+          likes: photoCard.dataset.likes,
+          date: photoCard.dataset.date
+        }
+        objs.push(res)
+      }
+
+      switch (value) {
+        case 'popularity':
+          let popularityList = objs.sort((a, b) => b.likes - a.likes)
+          setFlexOrder(popularityList)
+          break
+
+        case 'date':
+          let dateList = objs.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date)
+          })
+          setFlexOrder(dateList)
+          break
+
+        case 'title':
+          let titleList = objs.sort((a, b) => {
+            let aa = a.title
+            let bb = b.title
+            return (aa < bb) ? -1 : (aa > bb) ? 1 : 0
+          })
+          setFlexOrder(titleList)
+          break
       }
     }
   }
