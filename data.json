@@ -95,7 +95,8 @@
       ],
       "likes": 62,
       "date": "2011-12-08",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'une model en tenue sportswear jaune devat un terrain de basket proche d'une plage"
     },
     {
       "id": 8520927,
@@ -107,7 +108,8 @@
       ],
       "likes": 11,
       "date": "2011-11-06",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'une model en tenu verte, au millieu d'un pont sans voiture, dans un décors urbain"
     },
     {
       "id": 9025895,
@@ -119,19 +121,21 @@
       ],
       "likes": 72,
       "date": "2013-08-12",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'une femme portant une robe au motif rayé devant un mur en damier noir et blanc"
     },
     {
       "id": 9275938,
       "photographerId": 82,
       "title": "Wedding Gazebo",
-      "image": "Event-_WeddingGazebo.jpg",
+      "image": "Event_WeddingGazebo.jpg",
       "tags": [
         "events"
       ],
       "likes": 69,
       "date": "2018-02-22",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'un hotel de mariage fleuri"
     },
     {
       "id": 2053494,
@@ -143,7 +147,8 @@
       ],
       "likes": 2,
       "date": "2020-05-25",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'un couple de marié, avançant vers l'hôtel"
     },
     {
       "id": 7324238,
@@ -155,7 +160,8 @@
       ],
       "likes": 33,
       "date": "2019-06-12",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'un table lors d'un anniversaire"
     },
     {
       "id": 8328953,
@@ -167,7 +173,8 @@
       ],
       "likes": 24,
       "date": "2011-12-08",
-      "price": 100
+      "price": 100,
+      "alt" : "Video d'une sculture de cheval en bois"
     },
     {
       "id": 7502053,
@@ -179,7 +186,8 @@
       ],
       "likes": 88,
       "date": "2007-05-07",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'un peinture sur un mur d'un homme et d'une figure géometrique triangulaire"
     },
     {
       "id": 8523492,
@@ -191,7 +199,8 @@
       ],
       "likes": 24,
       "date": "2018-05-05",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'un couloir de métro taggué"
     },
     {
       "id": 75902334,
@@ -203,7 +212,8 @@
       ],
       "likes": 75,
       "date": "2019-11-25",
-      "price": 55
+      "price": 55,
+      "alt" : "Photo d'un graphity représentant des oiseaux"
     },
     {
       "id": 73852953,
@@ -215,7 +225,8 @@
       ],
       "likes": 52,
       "date": "2013-02-30",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo vue du dessus de sportif faisant de l'aviron"
     },
     {
       "id": 92758372,
@@ -227,7 +238,8 @@
       ],
       "likes": 58,
       "date": "2018-07-17",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo de deux models prenant la pause les yeux fermés"
     },
     {
       "id": 32958383,
@@ -239,7 +251,8 @@
       ],
       "likes": 11,
       "date": "2019-08-12",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo d'une model en robe rouge dans des escaliers"
     },
     {
       "id": 928587383,
@@ -251,7 +264,8 @@
       ],
       "likes": 2,
       "date": "2019-01-02",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo d'un groupe de personne lors d'une réunion"
     },
     {
       "id": 725639493,
@@ -263,7 +277,8 @@
       ],
       "likes": 3,
       "date": "2019-05-20",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo d'une personne lors d'une présentation de projet"
     },
     {
       "id": 23394384,
@@ -275,7 +290,8 @@
       ],
       "likes": 52,
       "date": "2019-07-18",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo d'une pianiste en représentation"
     },
     {
       "id": 87367293,
@@ -287,7 +303,8 @@
       ],
       "likes": 23,
       "date": "2018-02-22",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo d'un chanteur lors d'un représentaton"
     },
     {
       "id": 593834784,
@@ -299,7 +316,8 @@
       ],
       "likes": 52,
       "date": "2017-03-13",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo de fasse d'un cerf dans un pré"
     },
     {
       "id": 83958935,
@@ -311,7 +329,8 @@
       ],
       "likes": 52,
       "date": "2016-06-12",
-      "price": 70
+      "price": 70,
+      "alt" : "Video d'un chien jouant sur une plage au couché du soleil"
     },
     {
       "id": 394583434,
@@ -323,7 +342,8 @@
       ],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45
+      "price": 45,
+      "alt" : "Video aérienne d'une crête de montagne"
     },
     {
       "id": 343423425,
@@ -335,7 +355,8 @@
       ],
       "likes": 101,
       "date": "2017-04-03",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo de bainns thermaux, des personnes s'y baignent"
     },
     {
       "id": 73434243,
@@ -347,7 +368,8 @@
       ],
       "likes": 99,
       "date": "2018-04-30",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo d'une route traversant des plaines"
     },
     {
       "id": 23425523,
@@ -359,7 +381,8 @@
       ],
       "likes": 34,
       "date": "2016-04-05",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo d'un pont tranversant une forêt tropicale"
     },
     {
       "id": 23134513,
@@ -371,7 +394,8 @@
       ],
       "likes": 23,
       "date": "2017-03-18",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo prise depuis un bateau d'un lac surplombé par des montagens"
     },
     {
       "id": 92352352,
@@ -383,7 +407,8 @@
       ],
       "likes": 66,
       "date": "2018-05-24",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo portrait d'une femme souriante, pris en extérieur"
     },
     {
       "id": 34513453,
@@ -395,7 +420,8 @@
       ],
       "likes": 52,
       "date": "2017-04-21",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo portrait en noir et blanc d'un homme sur fond noir"
     },
     {
       "id": 23523533,
@@ -407,7 +433,8 @@
       ],
       "likes": 95,
       "date": "2018-11-02",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo portrait en noir et blanc d'une femme"
     },
     {
       "id": 525834234,
@@ -419,7 +446,8 @@
       ],
       "likes": 25,
       "date": "2019-01-02",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo portrait en noir et blanc d'une personne fumant une cigarette"
     },
     {
       "id": 623534343,
@@ -432,6 +460,8 @@
       "likes": 88,
       "date": "2019-02-03",
       "price": 45
+      ,
+      "alt" : "Photo vue de loin d'une personnes en haut d'une montagne"
     },
     {
       "id": 625025343,
@@ -443,7 +473,8 @@
       ],
       "likes": 85,
       "date": "2019-04-03",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo des Cinque Terre en Italie"
     },
     {
       "id": 2525345343,
@@ -455,7 +486,8 @@
       ],
       "likes": 34,
       "date": "2019-04-07",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo en noir et blanc d'une jeune fille faisant la grimace"
     },
     {
       "id": 2523434634,
@@ -467,7 +499,8 @@
       ],
       "likes": 63,
       "date": "2019-04-07",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo portrait d'une femme appuyer sur un fauteil rouge, eclairée par des néons"
     },
     {
       "id": 398847109,
@@ -479,7 +512,8 @@
       ],
       "likes": 55,
       "date": "2019-06-20",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo portrait en noir et blanc d'une femme"
     },
     {
       "id": 2534342,
@@ -491,7 +525,8 @@
       ],
       "likes": 25,
       "date": "2019-06-21",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo d'un table de restaurannt sur un plage"
     },
     {
       "id": 65235234,
@@ -503,7 +538,8 @@
       ],
       "likes": 52,
       "date": "2019-06-25",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo d'un couple de marié dans un décor rocheux"
     },
     {
       "id": 23523434,
@@ -515,7 +551,8 @@
       ],
       "likes": 77,
       "date": "2019-06-28",
-      "price": 45
+      "price": 45,
+      "alt" : "Photo d'un couple de marié sous des arbres"
     },
     {
       "id": 5234343,
@@ -527,7 +564,8 @@
       ],
       "likes": 142,
       "date": "2019-08-23",
-      "price": 60
+      "price": 60,
+      "alt" : "Video d'un groupe de chevaux sauvages"
     },
     {
       "id": 95234343,
@@ -539,7 +577,8 @@
       ],
       "likes": 59,
       "date": "2019-07-02",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo en gros plan d'un oiseau multicolore"
     },
     {
       "id": 52343416,
@@ -551,7 +590,8 @@
       ],
       "likes": 25,
       "date": "2019-04-03",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo d'une tour à Kyoto, vue depuis une petite rue au couché du soleil"
     },
     {
       "id": 2523434,
@@ -563,7 +603,8 @@
       ],
       "likes": 53,
       "date": "2019-05-06",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo d'une rue de Venise au couché du soleil"
     },
     {
       "id": 95293534,
@@ -575,7 +616,8 @@
       ],
       "likes": 33,
       "date": "2019-05-12",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo d'un lac entouré de forêt au pied d'une montagne"
     },
     {
       "id": 356234343,
@@ -587,7 +629,8 @@
       ],
       "likes": 53,
       "date": "2019-06-20",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo du bas d'un escalier dans une rue pavée"
     },
     {
       "id": 235234343,
@@ -599,7 +642,8 @@
       ],
       "likes": 63,
       "date": "2019-06-26",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo prise de m'intérieur d'un bâtiment, vue à travers la porte duu paysage ectérieur"
     },
     {
       "id": 6234234343,
@@ -611,7 +655,8 @@
       ],
       "likes": 52,
       "date": "2019-06-30",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo d'un batiment d'architecture baroque à Saint-Petersbourg"
     },
     {
       "id": 6525666253,
@@ -623,7 +668,8 @@
       ],
       "likes": 63,
       "date": "2019-07-20",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo d'un village sur une coline dans des montagnes"
     },
     {
       "id": 98252523433,
@@ -635,7 +681,8 @@
       ],
       "likes": 88,
       "date": "2020-01-05",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo en contre plongée de la tour de Pise"
     },
     {
       "id": 9259398453,
@@ -647,7 +694,8 @@
       ],
       "likes": 57,
       "date": "2020-01-20",
-      "price": 65
+      "price": 65,
+      "alt" : "Video vue du ciel d'un echangeur d'autoroute"
     },
     {
       "id": 3523523534,
@@ -659,7 +707,8 @@
       ],
       "likes": 54,
       "date": "2020-05-05",
-      "price": 60
+      "price": 60,
+      "alt" : "Photo d'un bâtiment rouge en angle pris en contre plonger"
     },
     {
       "id": 952343423,
@@ -671,7 +720,8 @@
       ],
       "likes": 150,
       "date": "2018-02-30",
-      "price": 70
+      "price": 70,
+      "alt" : "Video d'une gymenaste en perforcance sur un anneau"
     },
     {
       "id": 235234343,
@@ -683,7 +733,8 @@
       ],
       "likes": 101,
       "date": "2018-03-05",
-      "price": 65
+      "price": 65,
+      "alt" : "Photo d'une femme vue du dessus, entrain d'escalader une surface rocheuse"
     },
     {
       "id": 235343222,
@@ -695,7 +746,8 @@
       ],
       "likes": 103,
       "date": "2018-03-10",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo d'un surfeur dans le creux d'une vague"
     },
     {
       "id": 7775342343,
@@ -707,7 +759,8 @@
       ],
       "likes": 77,
       "date": "2018-04-16",
-      "price": 50
+      "price": 50,
+      "alt" : "Photo d'un skieur en plein saut en contre plongé"
     },
     {
       "id": 9253445784,
@@ -719,7 +772,8 @@
       ],
       "likes": 88,
       "date": "2018-04-22",
-      "price": 65
+      "price": 65,
+      "alt" : "Photo de coureuse lors d'un sprint sur circuit"
     },
     {
       "id": 22299394,
@@ -731,7 +785,8 @@
       ],
       "likes": 95,
       "date": "2018-04-27",
-      "price": 70
+      "price": 70,
+      "alt" : "Photo d'un skater lors d'un saut, dans un skatepark proche d'une plage "
     },
     {
       "id": 3452342633,
@@ -743,7 +798,8 @@
       ],
       "likes": 52,
       "date": "2018-05-03",
-      "price": 75
+      "price": 75,
+      "alt" : "Photo de l'intérieur du guggenheim de New-York"
     },
     {
       "id": 939234243,
@@ -755,7 +811,8 @@
       ],
       "likes": 55,
       "date": "2018-05-10",
-      "price": 72
+      "price": 72,
+      "alt" : "Photo d'un bâtiment moderne, prise de vue depuis un plan d'eau"
     },
     {
       "id": 222959233,
@@ -767,7 +824,8 @@
       ],
       "likes": 85,
       "date": "2018-05-15",
-      "price": 71
+      "price": 71,
+      "alt" : "Photo en noir er blanc d'un batiment circulaire, vue du sol vers le ciel"
     },
     {
       "id": 965933434,
@@ -779,7 +837,8 @@
       ],
       "likes": 66,
       "date": "2018-05-20",
-      "price": 58
+      "price": 58,
+      "alt" : "Photo de deux bâtiments proche vue depuis le sol"
     },
     {
       "id": 777723343,
@@ -791,7 +850,8 @@
       ],
       "likes": 79,
       "date": "2018-05-21",
-      "price": 80
+      "price": 80,
+      "alt" : "Photo d'un bâtiment à l'archtecture minimaliste"
     }
   ]
 }
