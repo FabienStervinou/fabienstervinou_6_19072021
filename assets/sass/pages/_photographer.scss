@@ -144,8 +144,15 @@
         height: 190px;
         border-radius: 5px;
         object-fit: cover;
-        // TODO: Make dynamic, default 50% 50%, top mobile, center center desktop 
         object-position: 50% 18%;
+      }
+
+      video {
+        width: 335px;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 5px;
+        object-position: 50% 50%;
       }
     }
 
@@ -206,6 +213,11 @@
           width: 350px;
           height: 300px;
           object-position: 50% 18%;
+        }
+
+        video {
+          width: 350px;
+          height: 300px;
         }
       }
 

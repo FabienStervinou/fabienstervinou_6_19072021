@@ -6,8 +6,16 @@ export default class Video {
     this.likes = data.likes
     this.authorId = data.photographerId
     this.price = data.price
-    // TODO: Verify type passed to the constructor
     this.tags = data.tags
-    this.file = data.image
+    this.video = data.video
+  }
+
+  getHTMLbalise (src) {
+    return `
+      <video controls>
+        <source src="${src + this.video}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    `
   }
 }

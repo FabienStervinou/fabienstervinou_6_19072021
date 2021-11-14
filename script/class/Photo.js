@@ -1,8 +1,5 @@
-import Photos from '../class/Photos'
-
-export default class Photo extends Photos {
+export default class Photo {
   constructor (data) {
-    super()
     this.id = data.id
     this.title = data.title
     this.date = data.date
@@ -10,6 +7,12 @@ export default class Photo extends Photos {
     this.authorId = data.photographerId
     this.price = data.price
     this.tags = data.tags
-    this.file = data.image
+    this.image = data.image
+  }
+
+  getHTMLbalise (src) {
+    return `
+      <img src="${src + this.image}" alt="" />
+    `
   }
 }

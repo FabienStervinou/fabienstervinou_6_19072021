@@ -1,9 +1,9 @@
-import file from '../../data.json'
+import data from '../../data.json'
 
 export default class Data {
   constructor () {
-    this.photographers = file.photographers
-    this.medias = file.media
+    this.photographers = data.photographers
+    this.medias = data.media
   }
 
   getAllTags () {

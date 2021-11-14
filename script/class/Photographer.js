@@ -1,4 +1,4 @@
-import Photos from '../class/Photos.js'
+import Medias from './Medias.js'
 
 export default class Photographer {
   constructor (data) {
@@ -35,21 +35,22 @@ export default class Photographer {
     `).join('')
   }
 
-  getPhotosHTML () {
-    const photos = new Photos()
-    let photographerPhotos = photos.getPhotoByPhotographerId(this.id)
+  getMediasHTML () {
+    const medias = new Medias()
+    let photographerPhotos = medias.getMediaByPhotographerId(this.id)
+    let src = `../assets/img/${this.name.split(' ')[0]}/`
 
-    return photographerPhotos.map(photo => `
-      <article class="pictureItem" data-likes="${photo.likes}" data-title="${photo.title}" data-date="${photo.date}" style="order:inherit;">
+    return photographerPhotos.map(media => `
+      <article class="pictureItem" data-likes="${media.likes}" data-title="${media.title}" data-date="${media.date}" style="order:inherit;">
         <div class="pictureItem-img">
-          <img src="../assets/img/${this.name.split(' ')[0]}/${photo.image}" alt="" />
+          ${media.getHTMLbalise(src)}
         </div>
         <div class="pictureItem-content">
           <div class="pictureItem-contentText">
-            <p>${photo.title}</p>
+            <p>${media.title}</p>
           </div>
           <div class="pictureItem-contentSocial">
-            <span id="counter" data-value="${photo.likes}"></span>
+            <span id="counter" data-value="${media.likes}"></span>
             <div class="likes" data-liked="false">
               <i class="far fa-heart" aria-hidden="true" style="display: block;"></i>
               <i class="fas fa-heart" aria-hidden="true" style="display: none;"></i>
@@ -61,21 +62,21 @@ export default class Photographer {
   }
 
   getPhotosHTMLByTag (tag) {
-    const photos = new Photos()
-    let photographerPhotos = photos.getPhotoByPhotographerIdTag(this.id, tag)
+    const medias = new Medias()
+    let photographerPhotos = medias.getMediaByPhotographerIdTag(this.id, tag)
     let photoWrapper = document.querySelector('.pictureList')
 
-    const photoByTag = photographerPhotos.map(photo => `
+    const photoByTag = photographerPhotos.map(media => `
       <article class="pictureItem">
         <div class="pictureItem-img">
-          <img src="../assets/img/${this.name.split(' ')[0]}/${photo.image}" alt="" />
+          <img src="../assets/img/${this.name.split(' ')[0]}/${media.image}" alt="" />
         </div>
         <div class="pictureItem-content">
           <div class="pictureItem-contentText">
-            <p>${photo.title}</p>
+            <p>${media.title}</p>
           </div>
           <div class="pictureItem-contentSocial">
-            <span id="counter" data-value="${photo.likes}"></span>
+            <span id="counter" data-value="${media.likes}"></span>
             <div class="likes" data-liked="false">
               <i class="far fa-heart" aria-hidden="true" style="display: block;"></i>
               <i class="fas fa-heart" aria-hidden="true" style="display: none;"></i>
@@ -161,7 +162,7 @@ export default class Photographer {
       </section>
       <section class="pictureList">
 
-      ${this.getPhotosHTML()}
+      ${this.getMediasHTML()}
 
       </section>
       <aside class="photographerInfo">
@@ -232,8 +233,8 @@ export default class Photographer {
   }
 
   getLikes () {
-    const photos = new Photos()
-    let photographerPhotos = photos.getPhotoByPhotographerId(this.id)
+    const medias = new Medias()
+    let photographerPhotos = medias.getMediaByPhotographerId(this.id)
     let likesCounter = 0
 
     for (const item of photographerPhotos) {

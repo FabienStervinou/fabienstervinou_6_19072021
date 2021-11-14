@@ -1,8 +1,8 @@
-import file from '../../data.json'
+import data from '../../data.json'
 
 export default class Tags {
   constructor () {
-    this.medias = file.media
+    this.medias = data.media
     this.allTags = []
   }
 
