@@ -8,12 +8,13 @@ export default class Video {
     this.price = data.price
     this.tags = data.tags
     this.video = data.video
+    this.alt = data.alt
   }
 
   getHTMLbalise (src) {
     return `
       <video controls>
-        <source src="${src + this.video}" type="video/mp4">
+        <source src="${src + this.video}" type="video/mp4" alt="${this.alt}">
         Your browser does not support the video tag.
       </video>
     `

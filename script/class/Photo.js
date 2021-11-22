@@ -8,11 +8,12 @@ export default class Photo {
     this.price = data.price
     this.tags = data.tags
     this.image = data.image
+    this.alt = data.alt
   }
 
   getHTMLbalise (src) {
     return `
-      <img src="${src + this.image}" alt="" />
+      <img src="${src + this.image}" alt="${this.alt}" />
     `
   }
 }

@@ -69,7 +69,7 @@ export default class Photographer {
     const photoByTag = photographerPhotos.map(media => `
       <article class="pictureItem">
         <div class="pictureItem-img">
-          <img src="../assets/img/${this.name.split(' ')[0]}/${media.image}" alt="" />
+          <img src="../assets/img/${this.name.split(' ')[0]}/${media.image}" alt="${this.alt}" />
         </div>
         <div class="pictureItem-content">
           <div class="pictureItem-contentText">
@@ -100,7 +100,7 @@ export default class Photographer {
     <article class="card-item">
         <header class="card-header">
           <a class="card-header_link" href="?page=photographer&id=${this.id}">
-            <img src="${this.getPicturePath()}" alt="#" class="card-header_img"/>
+            <img src="${this.getPicturePath()}" alt="Photo de profil de ${this.name}" class="card-header_img"/>
             <h2 class="card-header_title">${this.name}</h2>
           </a>
         </header>
@@ -142,7 +142,7 @@ export default class Photographer {
           <a href="#">Contactez-moi</a>
         </div>
         <a class="card__photographer-link" href="./photographer/${this.id}">
-          <img class="card__photographer-linkImg" src="../assets/img/Photographers/${this.firstname}.jpg" alt="Profil photo of ${this.name}" />
+          <img class="card__photographer-linkImg" src="../assets/img/Photographers/${this.firstname}.jpg" alt="Photo de profil de ${this.name}" />
         </a>
       </section>
       <section class="dropdown">
