@@ -12,7 +12,7 @@ export default class Medias {
 
     this.datas.forEach(photo => {
       if (photo.photographerId === id) {
-        result.push(factory.generate(photo)[0])
+        result.push(factory.generate(photo))
       }
     })
     return result

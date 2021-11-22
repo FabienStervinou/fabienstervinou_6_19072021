@@ -4,16 +4,12 @@ import ErrorMesssage from './ErrorMesssage.js'
 
 export default function Factory () {
   this.generate = (media) => {
-    let array = []
-
     if (media.image) {
       let photo = new Photo(media)
-      array.push(photo)
-      return array
+      return photo
     } else if (media.video) {
       let video = new Video(media)
-      array.push(video)
-      return array
+      return video
     } else {
       return new ErrorMesssage('Type de fichier inconnu')
     }
