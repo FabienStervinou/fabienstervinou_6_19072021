@@ -308,6 +308,7 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     let limitIndex = document.querySelectorAll('.modalPicture .pictureItem').length
     let actualIndex = parseInt(activePicture.dataset.index) + 1
 
+    // Right arrow
     if (arrowDir == 'right' && index >= 0 && actualIndex <= limitIndex - 1) {
       activePicture.classList.toggle('active')
       activePicture.style.display = 'none'
@@ -315,12 +316,19 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
       nextPicture.style.display = 'block'
     }
 
+    // Left arrow
     if (arrowDir == 'left' && actualIndex >= 2) {
       actualIndex--
       activePicture.classList.toggle('active')
       activePicture.style.display = 'none'
       previousPicture.classList.toggle('active')
       previousPicture.style.display = 'block'
+    }
+
+    // Set video controls attribute
+    let video = document.querySelector('.pictureItem.active .pictureItem-img video')
+    if (video != null) {
+      video.setAttribute('controls', true)
     }
   }
 

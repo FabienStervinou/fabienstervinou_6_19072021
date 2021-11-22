@@ -13,7 +13,7 @@ export default class Video {
 
   getHTMLbalise (src) {
     return `
-      <video controls>
+      <video>
         <source src="${src + this.video}" type="video/mp4" alt="${this.alt}">
         Your browser does not support the video tag.
       </video>
