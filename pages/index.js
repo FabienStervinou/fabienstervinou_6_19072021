@@ -272,4 +272,102 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   }
 
   initFilterListener()
+
+  // PICTURE SLIDESHOW
+  let pictures = document.querySelectorAll('.pictureItem-img')
+  for (let i = 0; i < pictures.length; i++) {
+    const picture = pictures[i]
+    picture.addEventListener('click', onClickPicture)
+  }
+
+  function onClickPicture (e) {
+    e.preventDefault()
+    let target = e.target
+    createPictureSlideshow(target)
+  }
+
+  function closePictureSlideshow (e) {
+    let slideshowContainer
+    if (e != undefined && e != null) {
+      slideshowContainer = e.target.parentNode.parentNode
+      return slideshowContainer.remove()
+    } else {
+      slideshowContainer = document.querySelector('.modalPicture')
+      return slideshowContainer.remove()
+    }
+  }
+
+  function onClickArrow (e) {
+    let index = this
+    let arrowDir = e.target.parentNode.className.split(' ')[1].split('-')[1]
+
+    let activePicture = document.querySelector('.pictureItem.active')
+    let nextPicture = activePicture.nextElementSibling
+    let previousPicture = activePicture.previousElementSibling
+
+    let limitIndex = document.querySelectorAll('.modalPicture .pictureItem').length
+    let actualIndex = parseInt(activePicture.dataset.index) + 1
+
+    if (arrowDir == 'right' && index >= 0 && actualIndex <= limitIndex - 1) {
+      activePicture.classList.toggle('active')
+      activePicture.style.display = 'none'
+      nextPicture.classList.toggle('active')
+      nextPicture.style.display = 'block'
+    }
+
+    if (arrowDir == 'left' && actualIndex >= 2) {
+      actualIndex--
+      activePicture.classList.toggle('active')
+      activePicture.style.display = 'none'
+      previousPicture.classList.toggle('active')
+      previousPicture.style.display = 'block'
+    }
+  }
+
+  function createPictureSlideshow (target) {
+    let dialog = document.createElement('dialog')
+    let htmlTarget = target.parentNode.parentNode.parentNode
+    let arrowsHTML = `
+      <div class="arrow arrow-left">
+        <i class="fas fa-angle-left"></i>
+      </div>
+      <div class="arrow arrow-right">
+        <i class="fas fa-angle-right"></i>
+      </div>
+      <div class="modalPicture-close">
+        <i class="fas fa-times"></i>
+      </div>
+    `
+
+    dialog.className = 'modalPicture'
+    htmlTarget.insertAdjacentElement('beforebegin', dialog)
+    dialog.innerHTML += arrowsHTML
+
+    // Render picture target
+    let picture = document.querySelector('.pictureList').children
+    for (let i = 0; i < picture.length; i++) {
+      const item = picture[i]
+      let clone = item.cloneNode(true)
+      clone.style.display = 'none'
+      dialog.appendChild(clone)
+    }
+
+    // let targetHTML = target.parentNode.parentNode
+    let targetIndex = parseInt(target.parentNode.parentNode.dataset.index)
+    let dialogPictures = dialog.querySelectorAll('.pictureItem')
+    let dialogTarget = dialogPictures[targetIndex]
+    dialogTarget.style.display = 'block'
+    dialogTarget.className += ' active'
+
+    // Arrow logic -> Specific for first and last item
+    let arrows = document.querySelectorAll('.arrow')
+    for (let i = 0; i < arrows.length; i++) {
+      const arrow = arrows[i]
+      arrow.addEventListener('click', onClickArrow.bind(targetIndex), false)
+    }
+
+    // close logic -> remove dialog <HTMLElement>
+    let closeButton = document.querySelector('.modalPicture-close')
+    closeButton.addEventListener('click', closePictureSlideshow)
+  }
 }

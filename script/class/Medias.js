@@ -15,7 +15,6 @@ export default class Medias {
         result.push(factory.generate(photo)[0])
       }
     })
-
     return result
   }
 

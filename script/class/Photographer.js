@@ -40,8 +40,8 @@ export default class Photographer {
     let photographerPhotos = medias.getMediaByPhotographerId(this.id)
     let src = `../assets/img/${this.name.split(' ')[0]}/`
 
-    return photographerPhotos.map(media => `
-      <article class="pictureItem" data-likes="${media.likes}" data-title="${media.title}" data-date="${media.date}" style="order:inherit;">
+    return photographerPhotos.map((media, index) => `
+      <article class="pictureItem" data-likes="${media.likes}" data-title="${media.title}" data-date="${media.date}" data-index="${index}" style="order:inherit;">
         <div class="pictureItem-img">
           ${media.getHTMLbalise(src)}
         </div>
