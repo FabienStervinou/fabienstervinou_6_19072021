@@ -444,6 +444,58 @@
   }
 }
 
+.modalPicture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.693);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0;
+  border: none;
+  display: block;
+  text-align: -webkit-center;
+  z-index: 1;
+
+  .pictureItem {
+    &.active {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      width: fit-content;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    width: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: $color-primary;
+
+    &-left {
+      left: 50px
+    }
+
+    &-right {
+      right: 50px;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    width: fit-content;
+    font-size: 50px;
+    margin: 40px;
+    right: 0;
+    top: 0;
+    color: $color-primary;
+  }
+}
+
 @media only screen and (min-width: $bp-tablet-lg) {
   .modalContact {
     &-form {
