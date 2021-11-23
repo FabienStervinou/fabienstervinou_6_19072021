@@ -217,6 +217,16 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
   function onClickFilter (e) {
     pictureFilterBy('filter', e.target.dataset.filter)
+
+    // Manage active class
+    let filters = document.querySelectorAll('a[data-filter]')
+    for (let i = 0; i < filters.length; i++) {
+      const filter = filters[i]
+      if (filter.classList.contains('active')) {
+        filter.classList.toggle('active')
+      }
+    }
+    e.target.classList.toggle('active')
   }
 
   /**

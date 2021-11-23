@@ -281,9 +281,21 @@
       a {
         display: flex;
         align-items: center;
+        position: relative;
         height: 20px;
         color: $color-white;
         padding: 15px 0 15px 10px;
+
+        &.active {
+          &::before {
+            background-color: white;
+            content: "";
+            height: 2px;
+            width: 40px;
+            position: absolute;
+            bottom: 10px;
+          }
+        }
       }
 
       &:not(:first-child) {
