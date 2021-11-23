@@ -29,7 +29,7 @@ export default class Tags {
 
     if (target != null) {
       const res = tags.map(tag => `
-        <li id="${tag}" class="tags_item" data-active="false">
+        <li id="${tag}" class="tags_item" data-active="false" tabindex="1">
           <a id="tag_${tag}">${tag}</a> 
         </li>
       `).join('')

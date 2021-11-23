@@ -22,6 +22,13 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
   function openModalContact () {
     modalContact.style.display = 'block'
+    let tabs = document.querySelectorAll('[tabindex="0"]')
+    for (let i = 0; i < tabs.length; i++) {
+      const tab = tabs[i]
+      tab.tabIndex = -1
+    }
+
+    closeBtn.focus()
   }
 
   /**
@@ -31,6 +38,11 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   function closeModalContact (e) {
     e.preventDefault()
     modalContact.style.display = 'none'
+    let tabs = document.querySelectorAll('[tabindex="-1"]')
+    for (let i = 0; i < tabs.length; i++) {
+      const tab = tabs[i]
+      tab.tabIndex = 0
+    }
   }
 
   /**
@@ -287,6 +299,13 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   }
 
   function closePictureSlideshow (e) {
+    // tabIndex
+    let tabsModalClose = document.querySelectorAll('[tabindex="-1"]')
+    for (let i = 0; i < tabsModalClose.length; i++) {
+      const tab = tabsModalClose[i]
+      tab.tabIndex = 0
+    }
+
     let slideshowContainer
     if (e != undefined && e != null) {
       slideshowContainer = e.target.parentNode.parentNode
@@ -336,20 +355,21 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     let dialog = document.createElement('dialog')
     let htmlTarget = target.parentNode.parentNode.parentNode
     let arrowsHTML = `
-      <div class="arrow arrow-left">
+      <div class="modalPicture-close" tabindex="-2">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="arrow arrow-left" tabindex="-2">
         <i class="fas fa-angle-left"></i>
       </div>
-      <div class="arrow arrow-right">
+      <div class="arrow arrow-right" tabindex="-2">
         <i class="fas fa-angle-right"></i>
-      </div>
-      <div class="modalPicture-close">
-        <i class="fas fa-times"></i>
       </div>
     `
 
     dialog.className = 'modalPicture'
     htmlTarget.insertAdjacentElement('beforebegin', dialog)
     dialog.innerHTML += arrowsHTML
+    dialog.tabIntex = -2
 
     // Render picture target
     let picture = document.querySelector('.pictureList').children
@@ -377,5 +397,20 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     // close logic -> remove dialog <HTMLElement>
     let closeButton = document.querySelector('.modalPicture-close')
     closeButton.addEventListener('click', closePictureSlideshow)
+
+    // Tabindex
+    let tabs = document.querySelectorAll('[tabindex="0"]')
+    for (let i = 0; i < tabs.length; i++) {
+      const tab = tabs[i]
+      tab.tabIndex = -1
+    }
+
+    let tabsModal = document.querySelectorAll('[tabindex="-2"]')
+    for (let i = 0; i < tabsModal.length; i++) {
+      const tab = tabsModal[i]
+      tab.tabIndex = 0
+    }
+
+    dialog.focus()
   }
 }

@@ -41,7 +41,7 @@ export default class Photographer {
     let src = `../assets/img/${this.name.split(' ')[0]}/`
 
     return photographerPhotos.map((media, index) => `
-      <article class="pictureItem" data-likes="${media.likes}" data-title="${media.title}" data-date="${media.date}" data-index="${index}" style="order:inherit;">
+      <article class="pictureItem" data-likes="${media.likes}" data-title="${media.title}" data-date="${media.date}" data-index="${index}" style="order:inherit;" tabindex="0">
         <div class="pictureItem-img">
           ${media.getHTMLbalise(src)}
         </div>
@@ -122,7 +122,7 @@ export default class Photographer {
 
     const photographerDOM = `
     <header class="header-nav">
-      <a class="logo" href="/">
+      <a class="logo" href="/" tagindex="0">
         <img src="../assets/img/logo.png" alt="Fisheye Home page"> 
       </a>
     </header>
@@ -141,9 +141,9 @@ export default class Photographer {
         <div id="contactBtn" class="btn link">
           <a href="#">Contactez-moi</a>
         </div>
-        <a class="card__photographer-link" href="./photographer/${this.id}">
+        <div class="card__photographer-link" href="./photographer/${this.id}">
           <img class="card__photographer-linkImg" src="../assets/img/Photographers/${this.firstname}.jpg" alt="Photo de profil de ${this.name}" />
-        </a>
+        </div>
       </section>
       <section class="dropdown">
         <p class="dropdownText">Trier par</p>
@@ -174,7 +174,7 @@ export default class Photographer {
         </div>
       </aside>
       <dialog id="modalContact" class="modalContact">
-        <form id="modalContact-form" name="formContact" class="modalContact-form" >
+        <form id="modalContact-form" name="formContact" class="modalContact-form">
           <h1>Contactez-moi<br />${this.name}</h1>
           <button id="closeModal" class="close" title="Close Contact modal">
             <i class="fa fa-times"></i>
