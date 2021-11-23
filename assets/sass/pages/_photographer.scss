@@ -487,6 +487,7 @@
     transform: translateY(-50%);
     font-size: 50px;
     color: $color-primary;
+    z-index: 1;
 
     &-left {
       left: 50px
@@ -506,6 +507,31 @@
     top: 0;
     color: $color-primary;
   }
+}
+
+@media only screen and (min-width: $bp-tablet) {
+  .modalPicture {
+    .pictureItem {
+      &.active {
+        .pictureItem-img {
+          width: 80%;
+
+          img, video {
+            height: auto;
+            width: 100%;
+          }
+        }
+
+        .pictureItem-contentSocial {
+          display: none;
+        }
+      }
+
+      &-content {
+        width: 80%;
+      }
+    }
+  } 
 }
 
 @media only screen and (min-width: $bp-tablet-lg) {
