@@ -5,9 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const dev = process.env.NODE_ENV === 'dev'
 
 module.exports = {
-  entry: {
-    main: ['./index.js', './pages/index.js']
-  },
+  entry: { main: ['./index.js', './pages/index.js'] },
   output: {
     path: path.resolve('./dist'),
     filename: '[name].js',
@@ -26,9 +24,7 @@ module.exports = {
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: { loader: 'babel-loader' }
       },
       {
         test: /\.scss$/,
@@ -43,15 +39,11 @@ module.exports = {
         use: [
           {
             loader: 'url-loader',
-            options: {
-              limit: 8192
-            }
+            options: { limit: 8192 }
           },
           {
             loader: 'img-loader',
-            options: {
-              enabled: !dev
-            }
+            options: { enabled: !dev }
           }
         ]
       }
