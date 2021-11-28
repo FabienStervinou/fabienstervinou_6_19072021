@@ -210,12 +210,10 @@
 
       &-img {
         img {
-          width: 350px;
-          height: 300px;
           object-position: 50% 18%;
         }
 
-        video {
+        img, video {
           width: 350px;
           height: 300px;
         }
@@ -284,17 +282,13 @@
         position: relative;
         height: 20px;
         color: $color-white;
-        padding: 15px 0 15px 10px;
+        padding: 15px 10px 15px 10px;
 
         &.active {
-          &::before {
-            background-color: white;
-            content: "";
-            height: 2px;
-            width: 40px;
-            position: absolute;
-            bottom: 10px;
-          }
+          background-color: white;
+          color: $color-primary;
+          border: 1px solid $color-primary;
+          border-radius: 5px 0 0 5px;
         }
       }
 
@@ -316,20 +310,38 @@
 
   &.open {
     .dropdownContent-item {
-        &:not(:first-child) {
-          display: block;
-          position: relative;
-
-          &::before {
-            background-color: #fff;
-            content: "";
-            height: 1px;
-            width: calc(100% - 20px);
-            position: absolute;
-            top: 0;
-            left: 10px;
-          }
+      &:first-child {
+        .active {
+          border-radius: 5px 0 0 0;
         }
+      }
+
+      &:nth-child(2) {
+        .active {
+          border-radius: 0;
+        }
+      }
+
+      &:nth-child(3) {
+        .active {
+          border-radius:  0 0 0 5px;
+        }
+      }
+
+      &:not(:first-child) {
+        display: block;
+        position: relative;
+
+        &::before {
+          background-color: #fff;
+          content: "";
+          height: 1px;
+          width: calc(100% - 20px);
+          position: absolute;
+          top: 0;
+          left: 10px;
+        }
+      }
 
         i.fa-angle-up {
           transform: rotate(180deg);
@@ -485,16 +497,16 @@
     width: fit-content;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 50px;
+    font-size: 30px;
     color: $color-primary;
     z-index: 1;
 
     &-left {
-      left: 50px
+      left: 3px
     }
 
     &-right {
-      right: 50px;
+      right: 3px;
     }
   }
 
@@ -519,6 +531,7 @@
           img, video {
             height: auto;
             width: 100%;
+            max-height: 100vh;            
           }
         }
 
@@ -529,6 +542,18 @@
 
       &-content {
         width: 80%;
+      }
+    }
+
+    .arrow {
+      font-size: 50px;
+
+      &-left {
+        left: 30px
+      }
+
+      &-right {
+        right: 30px;
       }
     }
   } 

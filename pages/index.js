@@ -327,6 +327,7 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   }
 
   function onClickArrow (e) {
+    e.preventDefault()
     let index = this
     let arrowDir = e.target.parentNode.className.split(' ')[1].split('-')[1]
 
@@ -364,7 +365,7 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   function createPictureSlideshow (target) {
     let dialog = document.createElement('dialog')
     let htmlTarget = target.parentNode.parentNode.parentNode
-    let arrowsHTML = `
+    const arrowsHTML = `
       <div class="modalPicture-close" tabindex="-2">
         <i class="fas fa-times"></i>
       </div>
@@ -379,7 +380,13 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     dialog.className = 'modalPicture'
     htmlTarget.insertAdjacentElement('beforebegin', dialog)
     dialog.innerHTML += arrowsHTML
-    dialog.tabIntex = -2
+    dialog.tabIndex = -2
+
+    // const spanFocus = '<span tabIndex="-2"></span>'
+    // dialog.insertAdjacentElement('afterend', spanFocus)
+    // spanFocus.onfocus = function () {
+    //   document.querySelector('.modalPicture-close').focus()
+    // }
 
     // Render picture target
     let picture = document.querySelector('.pictureList').children
@@ -421,6 +428,6 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
       tab.tabIndex = 0
     }
 
-    dialog.focus()
+    document.querySelector('.modalPicture-close').focus()
   }
 }
