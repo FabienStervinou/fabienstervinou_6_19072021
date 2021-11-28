@@ -327,38 +327,40 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   }
 
   function onClickArrow (e) {
-    e.preventDefault()
-    let index = this
-    let arrowDir = e.target.parentNode.className.split(' ')[1].split('-')[1]
+    if (e.type == 'click' || e.keyCode == 13) {
+      console.log('e.target :', e.target)
+      let index = this
+      let arrowDir = e.target.parentNode.className.split(' ')[1].split('-')[1]
 
-    let activePicture = document.querySelector('.pictureItem.active')
-    let nextPicture = activePicture.nextElementSibling
-    let previousPicture = activePicture.previousElementSibling
+      let activePicture = document.querySelector('.pictureItem.active')
+      let nextPicture = activePicture.nextElementSibling
+      let previousPicture = activePicture.previousElementSibling
 
-    let limitIndex = document.querySelectorAll('.modalPicture .pictureItem').length
-    let actualIndex = parseInt(activePicture.dataset.index) + 1
+      let limitIndex = document.querySelectorAll('.modalPicture .pictureItem').length
+      let actualIndex = parseInt(activePicture.dataset.index) + 1
 
-    // Right arrow
-    if (arrowDir == 'right' && index >= 0 && actualIndex <= limitIndex - 1) {
-      activePicture.classList.toggle('active')
-      activePicture.style.display = 'none'
-      nextPicture.classList.toggle('active')
-      nextPicture.style.display = 'block'
-    }
+      // Right arrow
+      if (arrowDir == 'right' && index >= 0 && actualIndex <= limitIndex - 1) {
+        activePicture.classList.toggle('active')
+        activePicture.style.display = 'none'
+        nextPicture.classList.toggle('active')
+        nextPicture.style.display = 'block'
+      }
 
-    // Left arrow
-    if (arrowDir == 'left' && actualIndex >= 2) {
-      actualIndex--
-      activePicture.classList.toggle('active')
-      activePicture.style.display = 'none'
-      previousPicture.classList.toggle('active')
-      previousPicture.style.display = 'block'
-    }
+      // Left arrow
+      if (arrowDir == 'left' && actualIndex >= 2) {
+        actualIndex--
+        activePicture.classList.toggle('active')
+        activePicture.style.display = 'none'
+        previousPicture.classList.toggle('active')
+        previousPicture.style.display = 'block'
+      }
 
-    // Set video controls attribute
-    let video = document.querySelector('.pictureItem.active .pictureItem-img video')
-    if (video != null) {
-      video.setAttribute('controls', true)
+      // Set video controls attribute
+      let video = document.querySelector('.pictureItem.active .pictureItem-img video')
+      if (video != null) {
+        video.setAttribute('controls', true)
+      }
     }
   }
 
@@ -366,14 +368,14 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     let dialog = document.createElement('dialog')
     let htmlTarget = target.parentNode.parentNode.parentNode
     const arrowsHTML = `
-      <div class="modalPicture-close" tabindex="-2">
-        <i class="fas fa-times"></i>
+      <div class="modalPicture-close">
+        <i class="fas fa-times" tabindex="-2"></i>
       </div>
-      <div class="arrow arrow-left" tabindex="-2">
-        <i class="fas fa-angle-left"></i>
+      <div class="arrow arrow-left">
+        <i class="fas fa-angle-left" tabindex="-2"></i>
       </div>
-      <div class="arrow arrow-right" tabindex="-2">
-        <i class="fas fa-angle-right"></i>
+      <div class="arrow arrow-right">
+        <i class="fas fa-angle-right" tabindex="-2"></i>
       </div>
     `
 
@@ -381,12 +383,6 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     htmlTarget.insertAdjacentElement('beforebegin', dialog)
     dialog.innerHTML += arrowsHTML
     dialog.tabIndex = -2
-
-    // const spanFocus = '<span tabIndex="-2"></span>'
-    // dialog.insertAdjacentElement('afterend', spanFocus)
-    // spanFocus.onfocus = function () {
-    //   document.querySelector('.modalPicture-close').focus()
-    // }
 
     // Render picture target
     let picture = document.querySelector('.pictureList').children
@@ -408,7 +404,10 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     let arrows = document.querySelectorAll('.arrow')
     for (let i = 0; i < arrows.length; i++) {
       const arrow = arrows[i]
-      arrow.addEventListener('click', onClickArrow.bind(targetIndex), false)
+      let eventMode = ['click', 'keypress']
+      eventMode.forEach(ev => {
+        arrow.addEventListener(ev, onClickArrow.bind(targetIndex), false)
+      })
     }
 
     // close logic -> remove dialog <HTMLElement>
