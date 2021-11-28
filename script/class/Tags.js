@@ -29,8 +29,8 @@ export default class Tags {
 
     if (target != null) {
       const res = tags.map(tag => `
-        <li id="${tag}" class="tags_item" data-active="false" tabindex="0">
-          <a id="tag_${tag}">${tag}</a> 
+        <li id="${tag}" class="tags_item" data-active="false">
+          <a id="tag_${tag}" tabindex="0">${tag}</a> 
         </li>
       `).join('')
       target.innerHTML = res
