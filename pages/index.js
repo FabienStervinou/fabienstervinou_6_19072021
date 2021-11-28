@@ -328,7 +328,6 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
   function onClickArrow (e) {
     if (e.type == 'click' || e.keyCode == 13) {
-      console.log('e.target :', e.target)
       let index = this
       let arrowDir = e.target.parentNode.className.split(' ')[1].split('-')[1]
 
