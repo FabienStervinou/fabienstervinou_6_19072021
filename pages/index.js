@@ -401,9 +401,9 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
     // Arrow logic -> Specific for first and last item
     let arrows = document.querySelectorAll('.arrow')
+    let eventMode = ['click', 'keypress']
     for (let i = 0; i < arrows.length; i++) {
       const arrow = arrows[i]
-      let eventMode = ['click', 'keypress']
       eventMode.forEach(ev => {
         arrow.addEventListener(ev, onClickArrow.bind(targetIndex), false)
       })
@@ -411,7 +411,10 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
     // close logic -> remove dialog <HTMLElement>
     let closeButton = document.querySelector('.modalPicture-close')
-    closeButton.addEventListener('click', closePictureSlideshow)
+    eventMode.forEach(ev => {
+      closeButton.addEventListener(ev, closePictureSlideshow)
+    })
+    // closeButton.addEventListener('click', closePictureSlideshow)
 
     // Tabindex
     let tabs = document.querySelectorAll('[tabindex="0"]')
