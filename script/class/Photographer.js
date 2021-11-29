@@ -41,7 +41,7 @@ export default class Photographer {
     let src = `../assets/img/${this.name.split(' ')[0]}/`
 
     return photographerPhotos.map((media, index) => `
-      <article class="pictureItem" data-likes="${media.likes}" data-title="${media.title}" data-date="${media.date}" data-index="${index}" style="order:inherit;" tabindex="0">
+      <article class="pictureItem" data-likes="${media.likes}" data-title="${media.title}" data-date="${media.date}" data-index="${index}" style="order:inherit;">
         <div class="pictureItem-img">
           ${media.getHTMLbalise(src)}
         </div>
@@ -51,7 +51,7 @@ export default class Photographer {
           </div>
           <div class="pictureItem-contentSocial">
             <span id="counter" data-value="${media.likes}"></span>
-            <div class="likes" data-liked="false" tabindex="0">
+            <div class="likes" data-liked="false">
               <i class="far fa-heart" aria-hidden="true" style="display: block;"></i>
               <i class="fas fa-heart" aria-hidden="true" style="display: none;"></i>
             </div>

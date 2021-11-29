@@ -300,13 +300,20 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   let pictures = document.querySelectorAll('.pictureItem-img')
   for (let i = 0; i < pictures.length; i++) {
     const picture = pictures[i]
-    picture.addEventListener('click', onClickPicture)
+    eventMode.forEach(ev => {
+      picture.addEventListener(ev, onClickPicture)
+    })
   }
 
   function onClickPicture (e) {
-    e.preventDefault()
-    let target = e.target
-    createPictureSlideshow(target)
+    if (e.type == 'click') {
+      let target = e.target
+      createPictureSlideshow(target)
+    } else if (e.keyCode == 13) {
+      let target = e.target
+      console.log('target :', target)
+      createPictureSlideshow(target)
+    }
   }
 
   function closePictureSlideshow (e) {

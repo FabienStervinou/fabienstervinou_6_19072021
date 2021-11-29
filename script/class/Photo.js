@@ -13,7 +13,7 @@ export default class Photo {
 
   getHTMLbalise (src) {
     return `
-      <img src="${src + this.image}" alt="${this.alt}" />
+      <img src="${src + this.image}" alt="${this.alt}" tabindex="0"/>
     `
   }
 }
