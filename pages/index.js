@@ -410,7 +410,7 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     }
 
     // close logic -> remove dialog <HTMLElement>
-    let closeButton = document.querySelector('.modalPicture-close')
+    const closeButton = document.querySelector('.modalPicture-close')
     eventMode.forEach(ev => {
       closeButton.addEventListener(ev, closePictureSlideshow)
     })
@@ -429,6 +429,6 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
       tab.tabIndex = 0
     }
 
-    document.querySelector('.modalPicture-close').focus()
+    closeButton.focus()
   }
 }

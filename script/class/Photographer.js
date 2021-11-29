@@ -51,7 +51,7 @@ export default class Photographer {
           </div>
           <div class="pictureItem-contentSocial">
             <span id="counter" data-value="${media.likes}"></span>
-            <div class="likes" data-liked="false">
+            <div class="likes" data-liked="false" tabindex="0">
               <i class="far fa-heart" aria-hidden="true" style="display: block;"></i>
               <i class="fas fa-heart" aria-hidden="true" style="display: none;"></i>
             </div>
