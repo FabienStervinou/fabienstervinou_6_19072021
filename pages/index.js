@@ -110,7 +110,9 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
   const dropdown = document.getElementById('dropdownContent')
   const filterArrow = document.getElementsByClassName('fa-angle-up')
-  filterArrow[0].addEventListener('click', toggleFiltersOpen)
+  eventMode.forEach(ev => {
+    filterArrow[0].addEventListener(ev, toggleFiltersOpen)
+  })
 
   function toggleFiltersOpen () {
     dropdown.classList.toggle('open')
