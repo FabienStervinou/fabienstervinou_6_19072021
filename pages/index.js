@@ -2,6 +2,7 @@ import Data from '../script/utils/Data.js'
 import Photographer from '../script/class/Photographer.js'
 
 let searchParams = new URLSearchParams(window.location.search)
+const eventMode = ['click', 'keypress']
 
 if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
   // Reset Session storage
@@ -401,7 +402,6 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
     // Arrow logic -> Specific for first and last item
     let arrows = document.querySelectorAll('.arrow')
-    let eventMode = ['click', 'keypress']
     for (let i = 0; i < arrows.length; i++) {
       const arrow = arrows[i]
       eventMode.forEach(ev => {
@@ -414,7 +414,6 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
     eventMode.forEach(ev => {
       closeButton.addEventListener(ev, closePictureSlideshow)
     })
-    // closeButton.addEventListener('click', closePictureSlideshow)
 
     // Tabindex
     let tabs = document.querySelectorAll('[tabindex="0"]')
@@ -428,7 +427,5 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
       const tab = tabsModal[i]
       tab.tabIndex = 0
     }
-
-    closeButton.focus()
   }
 }

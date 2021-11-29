@@ -122,7 +122,7 @@ export default class Photographer {
 
     const photographerDOM = `
     <header class="header-nav">
-      <a class="logo" href="/" tagindex="0">
+      <a class="logo" href="/" tabindex="0">
         <img src="../assets/img/logo.png" alt="Fisheye Home page"> 
       </a>
     </header>
@@ -150,7 +150,7 @@ export default class Photographer {
         <div id="dropdownContent" class="dropdownContent">
           <div class="dropdownContent-item">
             <a href="#" data-filter="popularity">Popularité</a>
-            <i class="fas fa-angle-up"></i>
+            <i class="fas fa-angle-up" tabindex="0"></i>
           </div>
           <div class="dropdownContent-item">
             <a href="#" data-filter="date">Date</a>

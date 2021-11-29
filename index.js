@@ -11,6 +11,7 @@ import Tags from './script/class/Tags.js'
 let url = window.location
 let paramsString = window.location.search
 let searchParams = new URLSearchParams(paramsString)
+const eventMode = ['click', 'keypress']
 
 function initHomePage () {
   try {
@@ -142,8 +143,10 @@ function setEventTags () {
       onClickTag(e)
       togglePhotographerCard()
     }
-    tag.removeEventListener('click', eventTags)
-    tag.addEventListener('click', eventTags)
+    eventMode.forEach(ev => {
+      tag.removeEventListener(ev, eventTags)
+      tag.addEventListener(ev, eventTags)
+    })
   }
   toggleTagActive()
 }
