@@ -223,13 +223,18 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
 
     // Manage active class
     let filters = document.querySelectorAll('a[data-filter]')
-    for (let i = 0; i < filters.length; i++) {
-      const filter = filters[i]
-      if (filter.classList.contains('active')) {
-        filter.classList.toggle('active')
+
+    if (e.target.classList.contains('active') == true) {
+      e.target.classList.toggle('active')
+    } else if (e.target.classList.contains('active') == false) {
+      for (let i = 0; i < filters.length; i++) {
+        const filter = filters[i]
+        if (filter.classList.contains('active')) {
+          filter.classList.toggle('active')
+        }
       }
+      e.target.classList.toggle('active')
     }
-    e.target.classList.toggle('active')
   }
 
   /**

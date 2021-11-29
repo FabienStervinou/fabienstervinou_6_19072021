@@ -310,6 +310,8 @@
 
   &.open {
     .dropdownContent-item {
+      z-index: 1;
+
       &:first-child {
         .active {
           border-radius: 5px 0 0 0;
