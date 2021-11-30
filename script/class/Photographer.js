@@ -65,11 +65,12 @@ export default class Photographer {
     const medias = new Medias()
     let photographerPhotos = medias.getMediaByPhotographerIdTag(this.id, tag)
     let photoWrapper = document.querySelector('.pictureList')
+    let src = `../assets/img/${this.name.split(' ')[0]}/`
 
     const photoByTag = photographerPhotos.map(media => `
       <article class="pictureItem">
         <div class="pictureItem-img">
-          <img src="../assets/img/${this.name.split(' ')[0]}/${media.image}" alt="${this.alt}" />
+          ${media.getHTMLbalise(src)}
         </div>
         <div class="pictureItem-content">
           <div class="pictureItem-contentText">

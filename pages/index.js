@@ -256,7 +256,7 @@ if (searchParams.get('page') === 'photographer' && searchParams.get('id')) {
       }
       if (value == null) {
         let target = document.querySelector('.pictureList')
-        const res = photographer.getPhotosHTML()
+        const res = photographer.getMediasHTML()
         target.innerHTML = res
       }
     }

@@ -10,9 +10,9 @@ export default class Medias {
     let result = []
     let factory = new Factory()
 
-    this.datas.forEach(photo => {
-      if (photo.photographerId === id) {
-        result.push(factory.generate(photo))
+    this.datas.forEach(media => {
+      if (media.photographerId === id) {
+        result.push(factory.generate(media))
       }
     })
     return result
@@ -20,15 +20,16 @@ export default class Medias {
 
   getMediaByPhotographerIdTag (id, tags) {
     let result = []
+    let factory = new Factory()
 
     if (tags) {
       this.datas.forEach(media => {
         if (media.photographerId === id) {
           for (let i = 0; i < tags.length; i++) {
             const tag = tags[i]
-
+            console.log('media :', media)
             if (media.tags.includes(tag)) {
-              result.push(media)
+              result.push(factory.generate(media))
             }
           }
         }
