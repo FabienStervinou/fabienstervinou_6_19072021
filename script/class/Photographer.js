@@ -143,7 +143,7 @@ export default class Photographer {
           <a href="#">Contactez-moi</a>
         </div>
         <div class="card__photographer-link" href="./photographer/${this.id}">
-          <img class="card__photographer-linkImg" src="../assets/img/Photographers/${this.firstname}.jpg" alt="Photo de profil de ${this.name}" />
+          <img class="card__photographer-linkImg" src="./assets/img/Photographers/${this.firstname}.jpg" alt="Photo de profil de ${this.name}" />
         </div>
       </section>
       <section class="dropdown">
@@ -227,7 +227,7 @@ export default class Photographer {
         </form>
       </dialog>
     </main>
-    <script type="module" src="../dist/photographer.js"></script>
+    <script type="module" src="./dist/photographer.js"></script>
     `
 
     photographerWrapper.innerHTML = photographerDOM
