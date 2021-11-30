@@ -27,7 +27,6 @@ export default class Medias {
         if (media.photographerId === id) {
           for (let i = 0; i < tags.length; i++) {
             const tag = tags[i]
-            console.log('media :', media)
             if (media.tags.includes(tag)) {
               result.push(factory.generate(media))
             }

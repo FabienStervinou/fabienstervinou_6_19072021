@@ -29,7 +29,7 @@ export default class Photographer {
 
   getTagsHTML () {
     return this.tags.map(tag => `
-      <li id="${tag}" class="tags_item" data-active="false">
+      <li id="${tag}" class="tags_item" data-active="false" tabindex="0">
         <a id="tag_${tag}">${tag}</a> 
       </li>
     `).join('')
@@ -65,7 +65,7 @@ export default class Photographer {
     const medias = new Medias()
     let photographerPhotos = medias.getMediaByPhotographerIdTag(this.id, tag)
     let photoWrapper = document.querySelector('.pictureList')
-    let src = `../assets/img/${this.name.split(' ')[0]}/`
+    let src = `./assets/img/${this.name.split(' ')[0]}/`
 
     const photoByTag = photographerPhotos.map(media => `
       <article class="pictureItem">
@@ -124,7 +124,7 @@ export default class Photographer {
     const photographerDOM = `
     <header class="header-nav">
       <a class="logo" href="/" tabindex="0">
-        <img src="../assets/img/logo.png" alt="Fisheye Home page"> 
+        <img src="./assets/img/logo.png" alt="Fisheye Home page"> 
       </a>
     </header>
     <main id="photographer">
